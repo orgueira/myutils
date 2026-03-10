@@ -202,7 +202,7 @@ export default function TextoAPdf() {
             </div>
           </section>
 
-          <section className="pb-16">
+          <section>
             <h2 className="text-2xl font-bold mb-6 text-zinc-900 dark:text-white">Preguntas Frecuentes (FAQ)</h2>
             <div className="space-y-4">
               <details className="p-4 bg-zinc-100 dark:bg-zinc-800/50 rounded-lg cursor-pointer group">
@@ -217,6 +217,36 @@ export default function TextoAPdf() {
                 <summary className="font-semibold text-zinc-900 dark:text-zinc-100">¿El PDF generado tiene marcas de agua?</summary>
                 <p className="mt-2 text-zinc-600 dark:text-zinc-400">No, tu documento PDF se generará completamente limpio, sin marcas de agua ni logotipos promocionales. Es apto para uso profesional o académico.</p>
               </details>
+            </div>
+          </section>
+
+          {/* --- SECCIÓN DE COMPARTIR --- */}
+          <section className="pb-16 mt-16 text-center border-t border-zinc-200 dark:border-zinc-800 pt-12">
+            <h3 className="text-xl font-bold mb-4 text-zinc-900 dark:text-white">¿Te ha sido útil esta herramienta?</h3>
+            <p className="text-zinc-600 dark:text-zinc-400 mb-6">Ayúdanos a llegar a más personas compartiéndola con tus amigos o compañeros de estudio/trabajo.</p>
+            <div className="flex justify-center gap-4">
+              <a 
+                href="https://api.whatsapp.com/send?text=Mira%20este%20conversor%20gratuito%20de%20Texto%20a%20PDF%20super%20r%C3%A1pido%20y%20seguro%3A%20https%3A%2F%2Fmyutils.com%2Fherramientas%2Ftexto-a-pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-medium rounded-xl transition-colors shadow-sm"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                </svg>
+                Compartir por WhatsApp
+              </a>
+              <a 
+                href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmyutils.com%2Fherramientas%2Ftexto-a-pdf&text=%C2%A1He%20descubierto%20esta%20herramienta%20gratuita%20y%20segura%20para%20pasar%20mis%20textos%20a%20PDF%20al%20instante!" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 text-white font-medium rounded-xl transition-colors shadow-sm"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+                </svg>
+                Compartir en X
+              </a>
             </div>
           </section>
 
