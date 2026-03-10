@@ -5,6 +5,12 @@ import jsPDF from "jspdf";
 
 export default function TextoAPdf() {
   const [texto, setTexto] = useState("");
+  
+  // Opciones de formato
+  const [fuente, setFuente] = useState<"helvetica" | "times" | "courier">("helvetica");
+  const [tamanoFuente, setTamanoFuente] = useState<number>(12);
+  const [orientacion, setOrientacion] = useState<"portrait" | "landscape">("portrait");
+
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Manejar la subida de un archivo .txt
@@ -25,12 +31,20 @@ export default function TextoAPdf() {
   const generarPDF = () => {
     if (!texto.trim()) return;
 
-    const doc = new jsPDF();
-    const pageWidth = doc.internal.pageSize.width;
-    const pageHeight = doc.internal.pageSize.height;
+    // Inicializar documento con orientación
+    const doc = new jsPDF({ orientation: orientacion });
+    
+    // Aplicar ajustes de fuente
+    doc.setFont(fuente);
+    doc.setFontSize(tamanoFuente);
+
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const pageHeight = doc.internal.pageSize.getHeight();
     const margen = 20;
     const maxAnchoLinea = pageWidth - margen * 2;
-    const altoLinea = 10;
+    
+    // El alto de línea varía según el tamaño de fuente elegido
+    const altoLinea = (tamanoFuente * 0.3527) * 1.5; 
     
     let y = margen;
     const lineas = doc.splitTextToSize(texto, maxAnchoLinea);
@@ -93,6 +107,55 @@ export default function TextoAPdf() {
             placeholder="Pega tu texto aquí o utiliza el botón superior para cargar un documento de texto..."
           />
           
+          {/* Opciones de Formato */}
+          <div className="w-full bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 mb-8">
+            <h3 className="text-sm font-bold text-zinc-700 dark:text-zinc-300 uppercase tracking-wider mb-4">Ajustes del Documento</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              {/* Selector de Fuente */}
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-medium text-zinc-600 dark:text-zinc-400">Tipo de letra</label>
+                <select 
+                  value={fuente} 
+                  onChange={(e) => setFuente(e.target.value as any)}
+                  className="p-2.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 outline-none focus:border-blue-500"
+                >
+                  <option value="helvetica">Arial / Helvetica (Clásica)</option>
+                  <option value="times">Times New Roman (Formal)</option>
+                  <option value="courier">Courier (Código)</option>
+                </select>
+              </div>
+
+              {/* Selector de Tamaño */}
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-medium text-zinc-600 dark:text-zinc-400">Tamaño de letra</label>
+                <select 
+                  value={tamanoFuente} 
+                  onChange={(e) => setTamanoFuente(Number(e.target.value))}
+                  className="p-2.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 outline-none focus:border-blue-500"
+                >
+                  <option value={10}>Pequeña (10pt)</option>
+                  <option value={12}>Normal (12pt)</option>
+                  <option value={16}>Grande (16pt)</option>
+                </select>
+              </div>
+
+              {/* Selector de Orientación */}
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-medium text-zinc-600 dark:text-zinc-400">Orientación</label>
+                <select 
+                  value={orientacion} 
+                  onChange={(e) => setOrientacion(e.target.value as any)}
+                  className="p-2.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 outline-none focus:border-blue-500"
+                >
+                  <option value="portrait">Vertical</option>
+                  <option value="landscape">Horizontal</option>
+                </select>
+              </div>
+
+            </div>
+          </div>
+
           <div className="flex justify-center">
             <button
               onClick={generarPDF}
@@ -109,11 +172,11 @@ export default function TextoAPdf() {
           
           <section>
             <h2 className="text-2xl font-bold mb-4 text-zinc-900 dark:text-white">¿Cómo convertir texto a PDF online?</h2>
-            <p className="mb-4">Convertir tus textos o archivos planos a un documento PDF profesional nunca ha sido tan fácil. Sigue estos tres sencillos pasos:</p>
+            <p className="mb-4">Convertir tus textos o archivos planos a un documento PDF profesional nunca ha sido tan fácil. Sigue estos sencillos pasos:</p>
             <ol className="list-decimal list-inside space-y-2 ml-2">
               <li><strong>Pega tu texto o sube un archivo:</strong> Escribe directamente en el cuadro de texto, pega el contenido desde tu portapapeles, o utiliza el botón "Subir archivo .TXT" para cargar tu documento.</li>
-              <li><strong>Revisa el contenido:</strong> Asegúrate de que el texto esté tal y como lo deseas. Nuestra herramienta respetará los saltos de línea.</li>
-              <li><strong>Genera el PDF:</strong> Haz clic en el botón azul "Descargar PDF Ahora". Tu archivo se generará al instante en formato A4 y se guardará en tu dispositivo.</li>
+              <li><strong>Ajusta el Formato:</strong> Elige el tipo de letra que mejor se adapte (Arial, Times o Courier), ajusta su tamaño y escoge si quieres imprimir en formato Vertical u Horizontal.</li>
+              <li><strong>Genera el PDF:</strong> Haz clic en el botón azul "Descargar PDF Ahora". Tu archivo se generará al instante y se guardará en tu dispositivo con tus preferencias.</li>
             </ol>
           </section>
 
@@ -144,7 +207,7 @@ export default function TextoAPdf() {
             <div className="space-y-4">
               <details className="p-4 bg-zinc-100 dark:bg-zinc-800/50 rounded-lg cursor-pointer group">
                 <summary className="font-semibold text-zinc-900 dark:text-zinc-100">¿Puedo convertir otros formatos como Word o Imágenes?</summary>
-                <p className="mt-2 text-zinc-600 dark:text-zinc-400">Esta herramienta específica está optimizada para texto plano (TXT). Estamos trabajando para añadir herramientas específicas para convertir Word a PDF e Imágenes a PDF en nuestra página principal muy pronto.</p>
+                <p className="mt-2 text-zinc-600 dark:text-zinc-400">Esta página está optimizada para texto plano (TXT). Pero no te preocupes, en nuestra página principal tienes disponible la herramienta especializada para convertir Imágenes a PDF.</p>
               </details>
               <details className="p-4 bg-zinc-100 dark:bg-zinc-800/50 rounded-lg cursor-pointer group">
                 <summary className="font-semibold text-zinc-900 dark:text-zinc-100">¿Hay un límite de palabras para convertir a PDF?</summary>
