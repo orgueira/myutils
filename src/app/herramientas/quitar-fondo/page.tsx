@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import { removeBackground } from "@imgly/background-removal";
 
 export default function QuitarFondoPage() {
   const [file, setFile] = useState<File | null>(null);
@@ -68,10 +69,6 @@ export default function QuitarFondoPage() {
       setProgressText("Cargando modelo de IA (sólo la primera vez toma más tiempo)...");
       setProgressPercent(0);
 
-      // Importar imgly background removal dinámicamente
-      const imglyModule = await import("@imgly/background-removal");
-      const removeBackground = (imglyModule.default || imglyModule) as any;
-      
       const config = {
         progress: (key: string, current: number, total: number) => {
           // El string key nos indica si está bajando el modelo o aplicándolo
