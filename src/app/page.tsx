@@ -14,10 +14,7 @@ export default function Home() {
       
       {/* Cabecera (Hero Section) */}
       <div className="w-full max-w-5xl flex flex-col items-center text-center mt-12 mb-16">
-        <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 mb-6">
-          MyUtils <span className="text-blue-600">Herramientas Web</span>
-        </h1>
-        <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-3xl">
+        <p className="text-xl font-medium text-zinc-700 dark:text-zinc-300 max-w-3xl">
           Tu navaja suiza de utilidades diarias. Herramientas rápidas, gratuitas y totalmente seguras (se ejecutan en tu propio navegador) para aumentar tu productividad.
         </p>
       </div>
