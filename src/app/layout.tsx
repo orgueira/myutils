@@ -46,6 +46,7 @@ export default function RootLayout({
                 <span className="text-zinc-500 dark:text-zinc-400 font-semibold tracking-wide uppercase text-xs">🖼️ Imágenes</span>
                 <div className="h-4 w-px bg-zinc-300 dark:bg-zinc-700 mx-1"></div>
                 <Link href="/herramientas/imagenes-a-pdf" className="px-3 py-1.5 rounded-lg text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-colors">Imágenes a PDF</Link>
+                <Link href="/herramientas/quitar-fondo" className="px-3 py-1.5 rounded-lg text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-colors">Quitar Fondo</Link>
               </div>
             </div>
           </nav>
