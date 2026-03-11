@@ -3,7 +3,7 @@ import { Metadata } from "next";
 
 // Metadatos SEO para la página principal
 export const metadata: Metadata = {
-  title: "MyUtils | Herramientas web gratis y seguras online",
+  title: "TheNinjaBox | Herramientas web gratis y seguras online",
   description: "Colección de herramientas útiles y utilidades gratis directamente en tu navegador. Sin registro ni instalaciones. Rápido, seguro y orientado a la productividad.",
   keywords: "herramientas online, utilidades web, gratis, productividad online",
 };

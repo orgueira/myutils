@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MyUtils - Herramientas Online Gratuitas",
+  title: "TheNinjaBox - Herramientas Online Gratuitas",
   description: "Colección de herramientas online rápidas y seguras. Todo se procesa en tu navegador.",
 };
 
@@ -31,7 +31,7 @@ export default function RootLayout({
         <header className="sticky top-0 z-50 w-full bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800">
           <nav className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between p-4 gap-4 sm:gap-0">
             <Link href="/" className="flex items-center gap-2 font-bold text-xl text-zinc-900 dark:text-white transition-transform hover:scale-105">
-              <span>🛠️ MyUtils</span>
+              <span>🥷 TheNinjaBox</span>
             </Link>
             <div className="flex flex-wrap justify-center gap-6 text-sm font-medium items-center">
               {/* Bloque Texto */}
@@ -57,7 +57,7 @@ export default function RootLayout({
         </main>
 
         <footer className="w-full border-t border-zinc-200 dark:border-zinc-800 py-6 text-center text-zinc-500 dark:text-zinc-400 text-sm bg-white dark:bg-zinc-950">
-          <p>© {new Date().getFullYear()} MyUtils. Herramientas 100% privadas y seguras en tu navegador.</p>
+          <p>© {new Date().getFullYear()} TheNinjaBox. Herramientas 100% privadas y seguras en tu navegador.</p>
         </footer>
       </body>
     </html>
