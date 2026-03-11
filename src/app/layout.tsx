@@ -33,9 +33,20 @@ export default function RootLayout({
             <Link href="/" className="flex items-center gap-2 font-bold text-xl text-zinc-900 dark:text-white transition-transform hover:scale-105">
               <span>🛠️ MyUtils</span>
             </Link>
-            <div className="flex flex-wrap justify-center gap-4 text-sm font-medium">
-              <Link href="/herramientas/texto-a-pdf" className="px-3 py-1.5 rounded-lg text-blue-600 dark:text-blue-400 bg-blue-50 hover:bg-blue-100 dark:bg-blue-900/20 dark:hover:bg-blue-900/40 transition-colors">Texto a PDF</Link>
-              <Link href="/herramientas/imagenes-a-pdf" className="px-3 py-1.5 rounded-lg text-purple-600 dark:text-purple-400 bg-purple-50 hover:bg-purple-100 dark:bg-purple-900/20 dark:hover:bg-purple-900/40 transition-colors">Imágenes a PDF</Link>
+            <div className="flex flex-wrap justify-center gap-6 text-sm font-medium items-center">
+              {/* Bloque Texto */}
+              <div className="flex items-center gap-2 bg-zinc-50 dark:bg-zinc-900/50 pl-3 pr-1 py-1 rounded-xl border border-zinc-200 dark:border-zinc-800">
+                <span className="text-zinc-500 dark:text-zinc-400 font-semibold tracking-wide uppercase text-xs">📝 Texto</span>
+                <div className="h-4 w-px bg-zinc-300 dark:bg-zinc-700 mx-1"></div>
+                <Link href="/herramientas/texto-a-pdf" className="px-3 py-1.5 rounded-lg text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors">Texto a PDF</Link>
+              </div>
+              
+              {/* Bloque Imágenes */}
+              <div className="flex items-center gap-2 bg-zinc-50 dark:bg-zinc-900/50 pl-3 pr-1 py-1 rounded-xl border border-zinc-200 dark:border-zinc-800">
+                <span className="text-zinc-500 dark:text-zinc-400 font-semibold tracking-wide uppercase text-xs">🖼️ Imágenes</span>
+                <div className="h-4 w-px bg-zinc-300 dark:bg-zinc-700 mx-1"></div>
+                <Link href="/herramientas/imagenes-a-pdf" className="px-3 py-1.5 rounded-lg text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/30 transition-colors">Imágenes a PDF</Link>
+              </div>
             </div>
           </nav>
         </header>
