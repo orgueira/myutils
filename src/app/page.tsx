@@ -12,15 +12,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-8 sm:p-24 bg-zinc-50 dark:bg-zinc-900">
       
-      {/* Cabecera (Hero Section) */}
-      <div className="w-full max-w-5xl flex flex-col items-center text-center mt-12 mb-16">
-        <p className="text-xl font-medium text-zinc-700 dark:text-zinc-300 max-w-3xl">
-          Tu navaja suiza de utilidades diarias. Herramientas rápidas, gratuitas y totalmente seguras (se ejecutan en tu propio navegador) para aumentar tu productividad.
-        </p>
-      </div>
-
       {/* Secciones de Herramientas */}
-      <div className="w-full max-w-5xl flex flex-col gap-12">
+      <div className="w-full max-w-5xl flex flex-col gap-12 mt-4">
         
         {/* SECCIÓN TEXTO */}
         <section>
