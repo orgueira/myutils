@@ -42,6 +42,7 @@ export default function RootLayout({
                 <span className="text-zinc-500 dark:text-zinc-400 font-semibold tracking-wide uppercase text-xs">📝 Texto</span>
                 <div className="h-4 w-px bg-zinc-300 dark:bg-zinc-700 mx-1"></div>
                 <Link href="/herramientas/texto-a-pdf" className="px-3 py-1.5 rounded-lg text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors">Texto a PDF</Link>
+                <Link href="/herramientas/contador-palabras" className="px-3 py-1.5 rounded-lg text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-colors">Contar Palabras</Link>
               </div>
               
               {/* Bloque Imágenes */}

@@ -59,6 +59,25 @@ export default function Home() {
               </p>
             </Link>
 
+            {/* Tarjeta para Contador de Palabras */}
+            <Link 
+              href="/herramientas/contador-palabras" 
+              className="group flex flex-col p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:border-emerald-500 hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300"
+            >
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-2 group-hover:text-emerald-600 transition-colors">
+                Contador de Palabras
+              </h3>
+              <p className="text-zinc-600 dark:text-zinc-400 flex-grow">
+                Cuenta palabras, caracteres y párrafos en tiempo real. Ideal para medir tu texto para Twitter, ensayos o tareas escolares.
+              </p>
+            </Link>
+
             {/* Espacio para futuras herramientas de Texto */}
             <div className="flex flex-col p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 border-dashed bg-zinc-50/50 dark:bg-zinc-900/50 justify-center items-center text-center opacity-70">
               <h3 className="text-lg font-medium text-zinc-500 dark:text-zinc-500 mb-1">
