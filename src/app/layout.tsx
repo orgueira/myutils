@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TheNinjaBox - Herramientas Online Gratuitas",
-  description: "Colección de herramientas online rápidas y seguras. Todo se procesa en tu navegador.",
+  title: "TheNinjaBox - Herramientas Online 100% Gratis y Sin Publicidad",
+  description: "Descubre TheNinjaBox: utilidades web gratuitas, sin anuncios, sin registros y procesadas de forma privada en tu navegador.",
 };
 
 export default function RootLayout({
@@ -32,6 +32,9 @@ export default function RootLayout({
           <nav className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between p-4 gap-4 sm:gap-0">
             <Link href="/" className="flex items-center gap-2 font-bold text-xl text-zinc-900 dark:text-white transition-transform hover:scale-105">
               <span>🥷 TheNinjaBox</span>
+              <span className="hidden sm:inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-bold text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                100% Gratis y Sin Ads
+              </span>
             </Link>
             <div className="flex flex-wrap justify-center gap-6 text-sm font-medium items-center">
               {/* Bloque Texto */}
@@ -57,7 +60,7 @@ export default function RootLayout({
         </main>
 
         <footer className="w-full border-t border-zinc-200 dark:border-zinc-800 py-6 text-center text-zinc-500 dark:text-zinc-400 text-sm bg-white dark:bg-zinc-950">
-          <p>© {new Date().getFullYear()} TheNinjaBox. Herramientas 100% privadas y seguras en tu navegador.</p>
+          <p>© {new Date().getFullYear()} TheNinjaBox. Herramientas 100% gratuitas, sin publicidad y seguras en tu navegador.</p>
         </footer>
       </body>
     </html>

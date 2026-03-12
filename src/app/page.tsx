@@ -3,17 +3,27 @@ import { Metadata } from "next";
 
 // Metadatos SEO para la página principal
 export const metadata: Metadata = {
-  title: "TheNinjaBox | Herramientas web gratis y seguras online",
-  description: "Colección de herramientas útiles y utilidades gratis directamente en tu navegador. Sin registro ni instalaciones. Rápido, seguro y orientado a la productividad.",
-  keywords: "herramientas online, utilidades web, gratis, productividad online",
+  title: "TheNinjaBox | Herramientas web gratis, sin publicidad y seguras",
+  description: "Colección de herramientas útiles online 100% gratis, sin anuncios molestos y sin registro. Todo se procesa en tu navegador para máxima privacidad y seguridad.",
+  keywords: "herramientas online gratis, sin publicidad, utilidades web seguras, procesado local, privacidad, sin registro",
 };
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center p-8 sm:p-24 bg-zinc-50 dark:bg-zinc-900">
+    <main className="flex min-h-screen flex-col items-center p-8 sm:p-16 lg:p-24 bg-zinc-50 dark:bg-zinc-900">
       
+      {/* Hero Section / USP (Unique Selling Proposition) */}
+      <div className="w-full max-w-5xl text-center mb-12">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-4">
+          Caja de Herramientas <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Premium</span>
+        </h1>
+        <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto font-medium">
+          Totalmente gratuitas, sin anuncios invasivos y sin necesidad de crear cuenta. Todo se procesa de manera segura directamente en tu navegador web.
+        </p>
+      </div>
+
       {/* Secciones de Herramientas */}
-      <div className="w-full max-w-5xl flex flex-col gap-12 mt-4">
+      <div className="w-full max-w-5xl flex flex-col gap-12">
         
         {/* SECCIÓN TEXTO */}
         <section>
@@ -34,10 +44,10 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-2 group-hover:text-blue-600 transition-colors">
-                Conversor Texto a PDF
+                Texto a PDF sin límites
               </h3>
               <p className="text-zinc-600 dark:text-zinc-400 flex-grow">
-                Transforma rápidamente cualquier bloque de texto, archivos .txt o apuntes en un documento PDF bien formateado.
+                Convierte tus archivos .txt, apuntes o bloques de texto a PDF al instante. <strong>100% privado</strong>, tu texto nunca viaja a nuestros servidores.
               </p>
             </Link>
 
@@ -72,10 +82,10 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-2 group-hover:text-purple-600 transition-colors">
-                Conversor Imágenes a PDF
+                Unir Imágenes a PDF
               </h3>
               <p className="text-zinc-600 dark:text-zinc-400 flex-grow">
-                Selecciona varias fotos, capturas o imágenes (JPG, PNG) y únelas en un único archivo PDF al instante de forma privada.
+                Junta tus fotos (JPG, PNG) en un único PDF en segundos. <strong>Sin marcas de agua</strong>, gratis y sin subir tus fotos personales a internet.
               </p>
             </Link>
 
@@ -91,10 +101,10 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-2 group-hover:text-indigo-600 transition-colors">
-                Quitar Fondo de Imágenes
+                Quitar Fondo con IA Local
               </h3>
               <p className="text-zinc-600 dark:text-zinc-400 flex-grow">
-                La Inteligencia Artificial separa a la persona/objeto principal del fondo automáticamente. Todo 100% privado en tu navegador.
+                Elimina fondos de fotos mágicamente y sin esperas. Ejecutamos un modelo de <strong>Inteligencia Artificial directamente en tu dispositivo</strong> gratis.
               </p>
             </Link>
 

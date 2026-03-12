@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Convertir Imágenes a PDF Online Gratis | TheNinjaBox",
-  description: "Convierte tus fotos e imágenes (JPG, PNG) a documento PDF al instante. Une varias imágenes en un solo PDF. Seguro, privado y gratis.",
-  keywords: "imagenes a pdf, pasar foto a pdf, convertir jpg a pdf, png a pdf, juntar imagenes en pdf",
+  title: "Unir Imágenes a PDF Online y Gratis | TheNinjaBox",
+  description: "Convierte fotos e imágenes (JPG, PNG) a documento PDF al instante. Herramienta 100% gratis, sin anuncios, sin subir archivos y sin límite de uso.",
+  keywords: "imagenes a pdf gratis, unir imagenes sin publicidad, convertir jpg a pdf seguro, png a pdf privado, juntar fotos en pdf sin marcas de agua",
   openGraph: {
-    title: "Convertir Imágenes a PDF Online Gratis",
-    description: "Une tus fotos e imágenes en un solo archivo PDF al instante y de forma 100% segura.",
+    title: "Unir Imágenes a PDF Online, Gratis y Sin Publicidad",
+    description: "Pasa tus fotos a un archivo PDF único en segundos, gratis y 100% privado en tu navegador.",
     type: "website",
   }
 };
@@ -51,6 +51,14 @@ export default function ImagenesAPdfLayout({
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "El sistema ajusta las dimensiones de las fotos para que encajen perfectamente en las medidas estándar de una hoja A4. Si la foto original era extremadamente grande, se escala al A4, pero mantendrá una alta nitidez óptima para su lectura o impresión."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿El PDF tendrá logos o marcas de agua de la web?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Jamás. Nuestra herramienta de conversión de fotos a PDF es totalmente gratuita y limpia. No insertamos marcas de agua ni publicidad en tus documentos generados."
         }
       }
     ]

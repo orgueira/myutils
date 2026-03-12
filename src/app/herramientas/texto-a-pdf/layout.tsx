@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Conversor de Texto a PDF Online Gratis | TheNinjaBox",
-  description: "Convierte instantáneamente cualquier texto, nota o apunte en un archivo PDF con formato A4. Rápido, seguro (el texto no se envía a ningún servidor), gratuito y sin registro.",
-  keywords: "conversor texto pdf, txt a pdf, crear pdf online, texto a pdf gratis, convertidor pdf, pasar texto a pdf",
+  title: "Conversor de Texto a PDF Online 100% Gratis | TheNinjaBox",
+  description: "Convierte cualquier texto o archivo txt en un documento PDF al instante. Herramienta totalmente gratuita, sin publicidad, sin marcas de agua y sin registro.",
+  keywords: "conversor texto pdf sin limite, txt a pdf gratis, crear pdf online sin publicidad, pasar texto a pdf seguro",
   openGraph: {
-    title: "Conversor de Texto a PDF Online Gratis",
-    description: "Convierte cualquier texto en un archivo PDF al instante.",
+    title: "Conversor de Texto a PDF Online Gratis y Sin Publicidad",
+    description: "Convierte cualquier texto en un archivo PDF al instante, de manera segura y gratuita.",
     type: "website",
   }
 };
@@ -58,7 +58,15 @@ export default function TextoAPdfLayout({
         "name": "¿El PDF generado tiene marcas de agua?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No, tu documento PDF se generará completamente limpio, sin marcas de agua ni logotipos promocionales. Es apto para uso profesional o académico."
+          "text": "No. Al ser una herramienta 100% gratuita y sin publicidad, tu documento PDF se generará completamente limpio, sin marcas de agua, ni páginas extra promocionales."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito crearme una cuenta para usarlo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, en TheNinjaBox no pedimos registro ni correos electrónicos. Entras, conviertes tu archivo y te lo descargas gratis y sin interrupciones publicitarias."
         }
       }
     ]
