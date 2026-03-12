@@ -118,6 +118,7 @@ export default function ContadorPalabrasPage() {
             <textarea
               value={texto}
               onChange={(e) => setTexto(e.target.value)}
+              maxLength={2000000} // Límite generoso de ~2MB para evitar cuelgues del navegador
               className="w-full min-h-[400px] p-5 rounded-2xl border-2 border-zinc-200 dark:border-zinc-800 focus:border-blue-500 dark:focus:border-blue-500 bg-zinc-50/50 dark:bg-zinc-900/50 text-zinc-900 dark:text-zinc-100 outline-none resize-y text-lg leading-relaxed shadow-inner"
               placeholder="Escribe o pega aquí tu texto para comenzar a contar..."
             />

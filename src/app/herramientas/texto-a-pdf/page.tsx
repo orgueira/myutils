@@ -11,12 +11,23 @@ export default function TextoAPdf() {
   const [tamanoFuente, setTamanoFuente] = useState<number>(12);
   const [orientacion, setOrientacion] = useState<"portrait" | "landscape">("portrait");
 
+  const [cooldown, setCooldown] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Manejar la subida de un archivo .txt
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setErrorMsg("");
     const file = e.target.files?.[0];
     if (!file) return;
+
+    // Límite de 100MB (100 * 1024 * 1024 bytes)
+    if (file.size > 104857600) {
+      setErrorMsg("El archivo supera el límite de 100MB. Intenta con un archivo más pequeño.");
+      e.target.value = '';
+      return;
+    }
 
     const reader = new FileReader();
     reader.onload = (evento) => {
@@ -29,7 +40,11 @@ export default function TextoAPdf() {
   };
 
   const generarPDF = () => {
-    if (!texto.trim()) return;
+    if (!texto.trim() || cooldown) return;
+
+    // Activar cooldown de 3 segundos
+    setCooldown(true);
+    setTimeout(() => setCooldown(false), 3000);
 
     // Inicializar documento con orientación
     const doc = new jsPDF({ orientation: orientacion });
@@ -72,6 +87,12 @@ export default function TextoAPdf() {
         <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 text-center max-w-2xl">
           Convierte tus notas, apuntes o archivos de texto plano (.txt) a un documento PDF con formato perfecto al instante. Herramienta 100% gratuita, segura y sin registro.
         </p>
+
+        {errorMsg && (
+          <div className="mb-6 w-full max-w-4xl bg-red-50 text-red-600 p-4 rounded-xl border border-red-200 text-center font-medium animate-in fade-in zoom-in duration-300">
+            {errorMsg}
+          </div>
+        )}
 
         {/* Casos de Uso Frecuentes (SEO Long-Tail) */}
         <div className="w-full max-w-4xl mt-2 mb-10 bg-zinc-100/50 dark:bg-zinc-800/30 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800">
@@ -184,10 +205,10 @@ export default function TextoAPdf() {
           <div className="flex justify-center">
             <button
               onClick={generarPDF}
-              disabled={!texto.trim()}
-              className="w-full sm:w-2/3 px-8 py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-lg rounded-xl shadow-lg shadow-blue-500/30 transition-all transform active:scale-95 disabled:active:scale-100"
+              disabled={!texto.trim() || cooldown}
+              className="w-full sm:w-2/3 px-8 py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-lg rounded-xl shadow-lg shadow-blue-500/30 transition-all transform active:scale-95 disabled:active:scale-100 flex items-center justify-center"
             >
-              Descargar PDF Ahora
+              {cooldown ? "Generando..." : "Descargar PDF Ahora"}
             </button>
           </div>
         </div>

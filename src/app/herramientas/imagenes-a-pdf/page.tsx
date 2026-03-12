@@ -13,6 +13,8 @@ type ImagenSubida = {
 export default function ImagenesAPdf() {
   const [imagenes, setImagenes] = useState<ImagenSubida[]>([]);
   const [generando, setGenerando] = useState(false);
+  const [cooldown, setCooldown] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
   
   // Opciones de configuración del PDF
   const [orientacion, setOrientacion] = useState<"portrait" | "landscape">("portrait");
@@ -25,9 +27,22 @@ export default function ImagenesAPdf() {
 
   // Manejar la selección de múltiples imágenes
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setErrorMsg("");
     if (!e.target.files) return;
     
-    const nuevosArchivos = Array.from(e.target.files);
+    let hasBigFile = false;
+    const nuevosArchivos = Array.from(e.target.files).filter(file => {
+      if (file.size > 104857600) { // 100MB
+        hasBigFile = true;
+        return false;
+      }
+      return true;
+    });
+
+    if (hasBigFile) {
+      setErrorMsg("Alguna de las imágenes supera el límite de 100MB y fue omitida para evitar bloqueos.");
+    }
+
     const nuevasImagenes: ImagenSubida[] = nuevosArchivos.map((file) => ({
       id: Math.random().toString(36).substring(7),
       file,
@@ -78,8 +93,9 @@ export default function ImagenesAPdf() {
 
   // Generar el documento PDF
   const generarPDF = async () => {
-    if (imagenes.length === 0) return;
+    if (imagenes.length === 0 || cooldown) return;
     setGenerando(true);
+    setCooldown(true);
 
     try {
       // Configurar el PDF con la orientación elegida
@@ -136,6 +152,7 @@ export default function ImagenesAPdf() {
       alert("Hubo un error al procesar las imágenes.");
     } finally {
       setGenerando(false);
+      setTimeout(() => setCooldown(false), 3000);
     }
   };
 
@@ -150,6 +167,12 @@ export default function ImagenesAPdf() {
         <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 text-center max-w-2xl">
           Selecciona varias imágenes (JPG, PNG) y únelas en un único documento PDF al instante. Las imágenes nunca se suben a ningún servidor, garantizando tu privacidad.
         </p>
+
+        {errorMsg && (
+          <div className="mb-6 w-full max-w-4xl bg-red-50 text-red-600 p-4 rounded-xl border border-red-200 text-center font-medium animate-in fade-in zoom-in duration-300">
+            {errorMsg}
+          </div>
+        )}
 
         {/* Casos de Uso Frecuentes (SEO Long-Tail) */}
         <div className="w-full max-w-4xl mt-2 mb-10 bg-zinc-100/50 dark:bg-zinc-800/30 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800">
@@ -302,11 +325,13 @@ export default function ImagenesAPdf() {
             {/* Botón de Generar PDF */}
             <button
               onClick={generarPDF}
-              disabled={imagenes.length === 0 || generando}
+              disabled={imagenes.length === 0 || generando || cooldown}
               className="w-full sm:w-2/3 mt-4 px-8 py-4 bg-purple-600 hover:bg-purple-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-lg rounded-xl shadow-lg shadow-purple-500/30 transition-all transform active:scale-95 disabled:active:scale-100 flex justify-center items-center gap-2"
             >
               {generando ? (
                 <span>Procesando PDF...</span>
+              ) : cooldown ? (
+                <span>Enfriando...</span>
               ) : (
                 <span>Descargar PDF ({imagenes.length} páginas)</span>
               )}

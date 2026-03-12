@@ -12,6 +12,7 @@ export default function QuitarFondoPage() {
   const [progressPercent, setProgressPercent] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [cooldown, setCooldown] = useState(false);
   
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -28,6 +29,12 @@ export default function QuitarFondoPage() {
     // Validar tipo
     if (!selectedFile.type.startsWith("image/")) {
       setError("Por favor, sube un archivo de imagen válido (JPG, PNG).");
+      return;
+    }
+
+    if (selectedFile.size > 104857600) { // 100MB
+      setError("La imagen supera el límite de 100MB. Intenta con una más pequeña para evitar bloqueos.");
+      if (fileInputRef.current) fileInputRef.current.value = "";
       return;
     }
     
@@ -95,6 +102,8 @@ export default function QuitarFondoPage() {
       setError("Ocurrió un error al procesar la imagen. Comprueba que sea una imagen válida o intenta con una resolución menor.");
     } finally {
       setIsProcessing(false);
+      setCooldown(true);
+      setTimeout(() => setCooldown(false), 3000);
     }
   };
 
@@ -112,7 +121,7 @@ export default function QuitarFondoPage() {
   };
 
   const handleDownload = () => {
-    if (!resultUrl) return;
+    if (!resultUrl || cooldown) return;
     const link = document.createElement("a");
     link.href = resultUrl;
     // Nombre del archivo de salida
@@ -199,6 +208,7 @@ export default function QuitarFondoPage() {
               ref={fileInputRef} 
               accept="image/*" 
               onChange={handleFileChange}
+              disabled={isProcessing || cooldown}
             />
           </div>
         ) : (
@@ -228,13 +238,14 @@ export default function QuitarFondoPage() {
               {!resultUrl && !isProcessing && (
                 <button
                   onClick={processImage}
-                  className="mt-6 w-full py-4 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-lg shadow-lg shadow-purple-600/20 transition-all flex items-center justify-center gap-2"
+                  disabled={cooldown}
+                  className="mt-6 w-full py-4 rounded-xl bg-purple-600 hover:bg-purple-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-lg shadow-lg shadow-purple-600/20 transition-all flex items-center justify-center gap-2 disabled:active:scale-100 disabled:opacity-50"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
                   </svg>
-                  Quitar Fondo Mágicamente
+                  {cooldown ? "Procesando..." : "Quitar Fondo Mágicamente"}
                 </button>
               )}
 
@@ -273,7 +284,8 @@ export default function QuitarFondoPage() {
 
                 <button
                   onClick={handleDownload}
-                  className="mt-6 w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-lg shadow-lg shadow-blue-600/20 transition-all flex items-center justify-center gap-2"
+                  disabled={cooldown}
+                  className="mt-6 w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-lg shadow-lg shadow-blue-600/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
