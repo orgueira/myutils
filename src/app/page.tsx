@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import SuggestionBox from "@/components/SuggestionBox";
 
 // Metadatos SEO para la página principal
 export const metadata: Metadata = {
@@ -78,15 +79,8 @@ export default function Home() {
               </p>
             </Link>
 
-            {/* Espacio para futuras herramientas de Texto */}
-            <div className="flex flex-col p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 border-dashed bg-zinc-50/50 dark:bg-zinc-900/50 justify-center items-center text-center opacity-70">
-              <h3 className="text-lg font-medium text-zinc-500 dark:text-zinc-500 mb-1">
-                Próximamente...
-              </h3>
-              <p className="text-sm text-zinc-400 dark:text-zinc-600">
-                Más utilidades de texto en camino.
-              </p>
-            </div>
+            {/* Buzón de sugerencias Texto */}
+            <SuggestionBox category="Texto" />
           </div>
         </section>
 
@@ -135,15 +129,8 @@ export default function Home() {
               </p>
             </Link>
 
-            {/* Espacio para futuras herramientas de Imágenes */}
-            <div className="flex flex-col p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 border-dashed bg-zinc-50/50 dark:bg-zinc-900/50 justify-center items-center text-center opacity-70">
-              <h3 className="text-lg font-medium text-zinc-500 dark:text-zinc-500 mb-1">
-                Próximamente...
-              </h3>
-              <p className="text-sm text-zinc-400 dark:text-zinc-600">
-                Redimensionar, recortar y más.
-              </p>
-            </div>
+            {/* Buzón de sugerencias Imágenes */}
+            <SuggestionBox category="Imágenes" />
           </div>
         </section>
 
