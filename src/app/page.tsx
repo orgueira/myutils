@@ -13,13 +13,21 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center p-8 sm:p-16 lg:p-24 bg-zinc-50 dark:bg-zinc-900">
       
       {/* Hero Section / USP (Unique Selling Proposition) */}
-      <div className="w-full max-w-5xl text-center mb-12">
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-4">
+      <div className="w-full max-w-5xl text-center mb-16">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-6">
           Caja de Herramientas <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Premium</span>
         </h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto font-medium">
+        <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto font-medium mb-8">
           Totalmente gratuitas, sin anuncios invasivos y sin necesidad de crear cuenta. Todo se procesa de manera segura directamente en tu navegador web.
         </p>
+        
+        {/* Call to Action: Marcadores (Técnica de Retención 1) */}
+        <div className="inline-flex items-center gap-2 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-700/50 text-yellow-800 dark:text-yellow-200 px-4 py-2.5 rounded-full text-sm sm:text-base font-medium transition-all hover:bg-yellow-100 dark:hover:bg-yellow-900/40">
+          <span>💡 ¿Te resulta útil? Pulsa</span>
+          <kbd className="font-sans px-2 py-0.5 bg-white dark:bg-black border border-yellow-300 dark:border-yellow-600 rounded-md shadow-sm text-xs font-bold text-zinc-700 dark:text-zinc-300">Ctrl + D</kbd>
+          <span className="hidden sm:inline">(o ⌘+D)</span>
+          <span>para guardarnos en tus favoritos.</span>
+        </div>
       </div>
 
       {/* Secciones de Herramientas */}
@@ -121,6 +129,29 @@ export default function Home() {
         </section>
 
       </div>
+
+      {/* Manifiesto: ¿Por qué es gratis? (Técnica de Retención/SEO 2) */}
+      <section className="w-full max-w-4xl mx-auto mt-24 mb-4 p-8 sm:p-12 rounded-3xl bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 shadow-sm text-center">
+        <span className="text-5xl mb-6 block" aria-hidden="true">✊</span>
+        <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-6 tracking-tight">
+          ¿Por qué TheNinjaBox es 100% gratis?
+        </h2>
+        <div className="text-zinc-600 dark:text-zinc-400 space-y-5 max-w-2xl mx-auto text-left sm:text-center text-lg leading-relaxed">
+          <p>
+            Estábamos hartos de entrar a páginas llenas de <strong>falsos botones de "Descargar"</strong>, 
+            pop-ups intrusivos, límites de "solo 2 archivos al día" y la obligación de dejarnos el correo 
+            solo para unir dos PDFs o quitar un fondo.
+          </p>
+          <p>
+            Por eso creamos <strong className="text-zinc-900 dark:text-white">TheNinjaBox</strong>. Queríamos un rincón de internet limpio, ultrarrápido y seguro.
+            Aquí no hay servidores lejanos procesando tus documentos confidenciales ni fotos privadas. 
+            Todo el trabajo pesado lo hace la potencia de tu propio navegador en local.
+          </p>
+          <p className="font-bold text-xl text-zinc-900 dark:text-white mt-8 pt-4 border-t border-zinc-100 dark:border-zinc-800">
+            Sin trucos. Sin anuncios. Solo herramientas que funcionan.
+          </p>
+        </div>
+      </section>
 
     </main>
   );
