@@ -41,7 +41,7 @@ export default function Home() {
             <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">Herramientas de Texto</h2>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {/* Tarjeta (Card) para el Conversor Texto a PDF */}
             <Link 
               href="/herramientas/texto-a-pdf" 
@@ -98,7 +98,9 @@ export default function Home() {
             </Link>
 
             {/* Buzón de sugerencias Texto */}
-            <SuggestionBox category="Texto" />
+            <div className="flex h-full w-full">
+              <SuggestionBox category="Texto" />
+            </div>
           </div>
         </section>
 
@@ -109,7 +111,7 @@ export default function Home() {
             <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">Herramientas de Imágenes</h2>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Tarjeta (Card) para el Conversor Imágenes a PDF */}
             <Link 
               href="/herramientas/imagenes-a-pdf" 
@@ -148,7 +150,9 @@ export default function Home() {
             </Link>
 
             {/* Buzón de sugerencias Imágenes */}
-            <SuggestionBox category="Imágenes" />
+            <div className="flex h-full w-full">
+              <SuggestionBox category="Imágenes" />
+            </div>
           </div>
         </section>
 
