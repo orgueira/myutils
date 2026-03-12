@@ -68,19 +68,47 @@ export default function QuitarFondoPage() {
   }, []);
 
   const processImage = async () => {
-    if (!originalUrl) return;
+    if (!originalUrl || !file) return;
 
     try {
       setIsProcessing(true);
       setError(null);
-      setProgressText("Cargando modelo de IA (sólo la primera vez toma más tiempo)...");
+      setProgressText("Intentando usar IA en la nube (Alta Calidad)...");
       setProgressPercent(0);
 
+      // --- PASO 1: INTENTAR USAR API EXTERNA (NUBE) ---
+      const formData = new FormData();
+      formData.append("image", file);
+
+      try {
+        const response = await fetch("/api/remove-bg", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (response.ok) {
+          // Éxito con la API externa (Calidad Profesional)
+          const blob = await response.blob();
+          const outputUrl = URL.createObjectURL(blob);
+          setResultUrl(outputUrl);
+          setProgressText("¡Completado con IA Profesional!");
+          setProgressPercent(100);
+          return; // Salimos, no hace falta el fallback
+        } else {
+          console.warn(`La API externa falló con estado ${response.status}. Usando fallback local...`);
+        }
+      } catch (apiError) {
+        console.warn("No se pudo contactar con nuestra API de alta calidad. Usando fallback local...");
+      }
+
+      // --- PASO 2: FALLBACK LOCAL (Navegador) ---
+      setProgressText("Límites gratuitos superados. Usando IA Local (sólo la 1ª vez tardará más)...");
+      
       const config = {
         progress: (key: string, current: number, total: number) => {
           // El string key nos indica si está bajando el modelo o aplicándolo
-          let label = "Procesando";
-          if (key.includes("fetch")) label = "Descargando modelo IA";
+          let label = "Procesando localmente";
+          if (key.includes("fetch")) label = "Descargando modelo IA en tu navegador";
           if (key.includes("compute")) label = "Separando el fondo";
           
           setProgressText(`${label}...`);
@@ -94,12 +122,12 @@ export default function QuitarFondoPage() {
       const blob = await removeBackground(originalUrl, config);
       const outputUrl = URL.createObjectURL(blob);
       setResultUrl(outputUrl);
-      setProgressText("¡Completado!");
+      setProgressText("¡Completado con IA Local!");
       setProgressPercent(100);
       
     } catch (err) {
       console.error("Error quitando el fondo:", err);
-      setError("Ocurrió un error al procesar la imagen. Comprueba que sea una imagen válida o intenta con una resolución menor.");
+      setError("Ocurrió un error al procesar la imagen de forma local. Comprueba que sea una imagen válida o intenta con una resolución menor.");
     } finally {
       setIsProcessing(false);
       setCooldown(true);
@@ -140,32 +168,50 @@ export default function QuitarFondoPage() {
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
           Quitar <span className="text-purple-600">Fondo</span> de Imágenes
         </h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl">
-          Sube tu fotografía y nuestra Inteligencia Artificial separará a la persona/objeto principal del fondo automáticamente. Todo 100% privado en tu navegador.
+        <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mb-4">
+          Sube tu fotografía y nuestra Inteligencia Artificial separará a la persona/objeto principal del fondo automáticamente.
         </p>
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300 text-sm font-semibold border border-purple-200 dark:border-purple-800">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z" clipRule="evenodd" />
+          </svg>
+          Híbrido Inteligente: Alta calidad si hay créditos, local si se agotan.
+        </span>
       </div>
 
       {/* Casos de Uso Frecuentes (SEO Long-Tail) */}
       <div className="w-full max-w-4xl mx-auto mt-2 mb-10 bg-zinc-100/50 dark:bg-zinc-800/30 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800">
         <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-4 flex items-center gap-2">
-          <span>💡</span> Casos de uso más populares:
+          <span>💡</span> Beneficios y casos de uso:
         </h3>
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-zinc-700 dark:text-zinc-300">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-zinc-700 dark:text-zinc-300">
           <li className="flex items-start gap-2">
-            <span className="text-indigo-500 font-bold">✓</span>
-            Hacer imágenes PNG con fondo transparente para usar en <strong>presentaciones, diapositivas o documentos</strong> formales.
+            <span className="text-purple-500 font-bold">✓</span>
+            <div>
+              <strong className="text-zinc-900 dark:text-zinc-100 block mb-0.5">Calidad Profesional</strong>
+              Si hay créditos mensuales gratis, usamos APIs Cloud Premium (como Remove.bg) para cortes de pelo perfectos.
+            </div>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-purple-500 font-bold">✓</span>
+            <div>
+              <strong className="text-zinc-900 dark:text-zinc-100 block mb-0.5">Siempre Funciona</strong>
+              Si los créditos gratuitos se agotan, usamos nuestro propio modelo de IA nativo directamente en tu navegador.
+            </div>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-indigo-500 font-bold">✓</span>
-            Eliminar el fondo de fotos de <strong>productos para vender en Wallapop, Vinted o tiendas online</strong> fácilmente.
+            <div>
+              <strong className="text-zinc-900 dark:text-zinc-100 block mb-0.5">Ecommerce y Memes</strong>
+              Ideal para siluetas en tiendas como Wallapop, miniaturas de YouTube o pegatinas de WhatsApp sin Photoshop.
+            </div>
           </li>
           <li className="flex items-start gap-2">
             <span className="text-indigo-500 font-bold">✓</span>
-            Recortar a personas para crear <strong>stickers de WhatsApp, miniaturas de YouTube o memes</strong> sin tener Photoshop.
-          </li>
-          <li className="flex items-start gap-2">
-            <span className="text-indigo-500 font-bold">✓</span>
-            Quitar el fondo de tus fotos personales de forma <strong>segura sin subirlas a servidores en la nube</strong> (100% local).
+            <div>
+              <strong className="text-zinc-900 dark:text-zinc-100 block mb-0.5">Privacidad Garantizada</strong>
+              En el modo local, la foto no viaja a nuestros servidores, manteniendo tus fotos seguras y 100% tuyas.
+            </div>
           </li>
         </ul>
       </div>
@@ -242,8 +288,7 @@ export default function QuitarFondoPage() {
                   className="mt-6 w-full py-4 rounded-xl bg-purple-600 hover:bg-purple-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-lg shadow-lg shadow-purple-600/20 transition-all flex items-center justify-center gap-2 disabled:active:scale-100 disabled:opacity-50"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                   </svg>
                   {cooldown ? "Procesando..." : "Quitar Fondo Mágicamente"}
                 </button>
