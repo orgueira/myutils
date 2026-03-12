@@ -79,6 +79,24 @@ export default function Home() {
               </p>
             </Link>
 
+            {/* Tarjeta para Formateador JSON */}
+            <Link 
+              href="/herramientas/formateador-json" 
+              className="group flex flex-col p-6 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:border-orange-500 hover:shadow-lg hover:shadow-orange-500/10 transition-all duration-300"
+            >
+              <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 mb-2 group-hover:text-orange-600 transition-colors">
+                Formateador JSON
+              </h3>
+              <p className="text-zinc-600 dark:text-zinc-400 flex-grow">
+                Formatea, valida y embellece código JSON. Analiza datos estructurados con total privacidad y sin salir de tu navegador.
+              </p>
+            </Link>
+
             {/* Buzón de sugerencias Texto */}
             <SuggestionBox category="Texto" />
           </div>
