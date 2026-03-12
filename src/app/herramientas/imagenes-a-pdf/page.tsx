@@ -148,8 +148,33 @@ export default function ImagenesAPdf() {
           Convertir Imágenes a PDF
         </h1>
         <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 text-center max-w-2xl">
-          Une fotos (JPG, PNG) en un solo documento PDF. Ahora con soporte para <strong>arrastrar y reordenar</strong>, sin límites y procesado en tu navegador de forma segura.
+          Selecciona varias imágenes (JPG, PNG) y únelas en un único documento PDF al instante. Las imágenes nunca se suben a ningún servidor, garantizando tu privacidad.
         </p>
+
+        {/* Casos de Uso Frecuentes (SEO Long-Tail) */}
+        <div className="w-full max-w-4xl mt-2 mb-10 bg-zinc-100/50 dark:bg-zinc-800/30 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800">
+          <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-4 flex items-center gap-2">
+            <span>💡</span> Casos de uso más populares:
+          </h3>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-zinc-700 dark:text-zinc-300">
+            <li className="flex items-start gap-2">
+              <span className="text-purple-500 font-bold">✓</span>
+              Unir las fotos del anverso y reverso del <strong>DNI o Pasaporte</strong> en un solo PDF para trámites online.
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-purple-500 font-bold">✓</span>
+              Juntar fotos de <strong>tickets, facturas o recibos</strong> en un único documento para enviarlo a contabilidad.
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-purple-500 font-bold">✓</span>
+              Crear un portafolio visual o un <strong>álbum de fotos rápido</strong> sin necesidad de descargar aplicaciones en el móvil.
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-purple-500 font-bold">✓</span>
+              Escanear deberes y ejercicios con el móvil y convertirlos a PDF para enviarlos al profesor, <strong>100% gratis y sin registros</strong>.
+            </li>
+          </ul>
+        </div>
 
         {/* --- LA HERRAMIENTA --- */}
         <div className="w-full bg-white dark:bg-zinc-950 p-6 sm:p-8 rounded-2xl shadow-sm border border-zinc-200 dark:border-zinc-800 mb-16">

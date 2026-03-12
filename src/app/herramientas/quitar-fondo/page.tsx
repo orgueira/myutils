@@ -136,6 +136,31 @@ export default function QuitarFondoPage() {
         </p>
       </div>
 
+      {/* Casos de Uso Frecuentes (SEO Long-Tail) */}
+      <div className="w-full max-w-4xl mx-auto mt-2 mb-10 bg-zinc-100/50 dark:bg-zinc-800/30 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800">
+        <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-4 flex items-center gap-2">
+          <span>💡</span> Casos de uso más populares:
+        </h3>
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-zinc-700 dark:text-zinc-300">
+          <li className="flex items-start gap-2">
+            <span className="text-indigo-500 font-bold">✓</span>
+            Hacer imágenes PNG con fondo transparente para usar en <strong>presentaciones, diapositivas o documentos</strong> formales.
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-indigo-500 font-bold">✓</span>
+            Eliminar el fondo de fotos de <strong>productos para vender en Wallapop, Vinted o tiendas online</strong> fácilmente.
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-indigo-500 font-bold">✓</span>
+            Recortar a personas para crear <strong>stickers de WhatsApp, miniaturas de YouTube o memes</strong> sin tener Photoshop.
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-indigo-500 font-bold">✓</span>
+            Quitar el fondo de tus fotos personales de forma <strong>segura sin subirlas a servidores en la nube</strong> (100% local).
+          </li>
+        </ul>
+      </div>
+
       <div className="w-full max-w-5xl mx-auto flex flex-col items-center">
         
         {error && (

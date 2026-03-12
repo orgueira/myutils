@@ -73,6 +73,31 @@ export default function TextoAPdf() {
           Convierte tus notas, apuntes o archivos de texto plano (.txt) a un documento PDF con formato perfecto al instante. Herramienta 100% gratuita, segura y sin registro.
         </p>
 
+        {/* Casos de Uso Frecuentes (SEO Long-Tail) */}
+        <div className="w-full max-w-4xl mt-2 mb-10 bg-zinc-100/50 dark:bg-zinc-800/30 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800">
+          <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-4 flex items-center gap-2">
+            <span>💡</span> Casos de uso más populares:
+          </h3>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-zinc-700 dark:text-zinc-300">
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500 font-bold">✓</span>
+              Convertir <strong>apuntes de clase o notas rápidas</strong> a PDF para imprimirlos o compartirlos con compañeros.
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500 font-bold">✓</span>
+              Pasar borradores de texto o <strong>contratos simples en .txt</strong> a un documento PDF formal y limpio.
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500 font-bold">✓</span>
+              Crear archivos PDF sin descargar programas extra. Todo ocurre <strong>100% en tu navegador</strong> (sin servidores).
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-500 font-bold">✓</span>
+              Generar un PDF de lectura rápida <strong>sin marcas de agua</strong> y totalmente gratuito en un clic.
+            </li>
+          </ul>
+        </div>
+
         {/* --- LA HERRAMIENTA --- */}
         <div className="w-full bg-white dark:bg-zinc-950 p-6 sm:p-8 rounded-2xl shadow-sm border border-zinc-200 dark:border-zinc-800 mb-16">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
