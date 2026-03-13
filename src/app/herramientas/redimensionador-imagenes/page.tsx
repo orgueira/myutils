@@ -147,7 +147,7 @@ export default function RedimensionadorImagenesPage() {
                 className="hidden" 
                 onChange={handleFileChange}
               />
-              <button className="px-6 py-2.5 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-all shadow-sm">
+              <button className="px-6 py-3 min-w-[200px] bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-all shadow-sm">
                 Seleccionar Imagen
               </button>
             </div>
@@ -184,7 +184,7 @@ export default function RedimensionadorImagenesPage() {
                       type="number" 
                       value={width || ""}
                       onChange={handleWidthChange}
-                      className="w-full px-3 py-2 bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-3 bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-500 text-base"
                     />
                   </div>
                   
@@ -200,17 +200,17 @@ export default function RedimensionadorImagenesPage() {
                       type="number" 
                       value={height || ""}
                       onChange={handleHeightChange}
-                      className="w-full px-3 py-2 bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-3 bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700 rounded-lg text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-500 text-base"
                     />
                   </div>
                 </div>
 
-                <label className="flex items-center gap-2 cursor-pointer select-none group">
+                <label className="flex items-center gap-3 cursor-pointer select-none group py-2">
                   <input 
                     type="checkbox" 
                     checked={maintainRatio}
                     onChange={(e) => setMaintainRatio(e.target.checked)}
-                    className="w-4 h-4 rounded border-zinc-300 text-blue-600 focus:ring-blue-500"
+                    className="w-5 h-5 rounded border-zinc-300 text-blue-600 focus:ring-blue-500"
                   />
                   <span className="text-sm text-zinc-600 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors">
                     Mantener proporción original

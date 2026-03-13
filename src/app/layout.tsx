@@ -39,9 +39,9 @@ export default function RootLayout({
             </Link>
 
             {/* Menú de Navegación Simple y Escalable */}
-            <div className="flex items-center gap-6 text-sm font-semibold text-zinc-600 dark:text-zinc-300">
-              <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Herramientas</Link>
-              <Link href="/contacto" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contacto / Sugerencias</Link>
+            <div className="flex items-center gap-4 sm:gap-6 text-sm font-semibold text-zinc-600 dark:text-zinc-300 w-full sm:w-auto justify-center sm:justify-end mt-2 sm:mt-0">
+              <Link href="/" className="px-3 py-2 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-lg transition-all">Herramientas</Link>
+              <Link href="/contacto" className="px-3 py-2 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 rounded-lg transition-all">Contacto / Sugerencias</Link>
             </div>
           </nav>
         </header>
