@@ -139,6 +139,26 @@ export default function Home() {
               </p>
             </Link>
 
+            {/* Tarjeta para Redimensionar Imágenes */}
+            <Link 
+              href="/herramientas/redimensionador-imagenes" 
+              className="group flex flex-col p-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 hover:border-pink-500 hover:shadow-md hover:shadow-pink-500/5 transition-all duration-300"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-pink-100 text-pink-600 dark:bg-pink-900/30 dark:text-pink-400 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                  </svg>
+                </div>
+                <h3 className="text-base font-semibold text-zinc-900 dark:text-zinc-50 group-hover:text-pink-600 transition-colors leading-tight">
+                  Redimensionador
+                </h3>
+              </div>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 flex-grow leading-relaxed">
+                Cambia el tamaño y ajusta tus fotos manteniendo la calidad y proporción. 100% privado desde tu navegador.
+              </p>
+            </Link>
+
             {/* Buzón de sugerencias Imágenes */}
             <div className="flex h-full w-full">
               <SuggestionBox category="Imágenes" />
