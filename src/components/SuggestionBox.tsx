@@ -46,7 +46,7 @@ export default function SuggestionBox({ category }: { category: string }) {
       {status === "success" ? (
         <div className="flex flex-col items-center justify-center text-center space-y-3 animate-in fade-in zoom-in duration-300 h-full">
           <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mb-2">
-            <span className="text-2xl">🥷</span>
+            <span className="text-2xl">🧰</span>
           </div>
           <h3 className="text-lg font-bold text-emerald-600 dark:text-emerald-400 tracking-tight">¡Sugerencia anotada!</h3>
           <p className="text-sm text-zinc-500 dark:text-zinc-400">

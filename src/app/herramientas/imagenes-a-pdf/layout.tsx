@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Unir Imágenes a PDF Online y Gratis | TheNinjaBox",
+  title: "Unir Imágenes a PDF Online y Gratis | OToolbox",
   description: "Convierte fotos e imágenes (JPG, PNG) a documento PDF al instante. Herramienta 100% gratis, sin anuncios, sin subir archivos y sin límite de uso.",
   keywords: "imagenes a pdf gratis, unir imagenes sin publicidad, convertir jpg a pdf seguro, png a pdf privado, juntar fotos en pdf sin marcas de agua",
   openGraph: {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Conversor de Texto a PDF Online 100% Gratis | TheNinjaBox",
+  title: "Conversor de Texto a PDF Online 100% Gratis | OToolbox",
   description: "Convierte cualquier texto o archivo txt en un documento PDF al instante. Herramienta totalmente gratuita, sin publicidad, sin marcas de agua y sin registro.",
   keywords: "conversor texto pdf sin limite, txt a pdf gratis, crear pdf online sin publicidad, pasar texto a pdf seguro",
   openGraph: {
@@ -66,7 +66,7 @@ export default function TextoAPdfLayout({
         "name": "¿Necesito crearme una cuenta para usarlo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No, en TheNinjaBox no pedimos registro ni correos electrónicos. Entras, conviertes tu archivo y te lo descargas gratis y sin interrupciones publicitarias."
+          "text": "No, en OToolbox no pedimos registro ni correos electrónicos. Entras, conviertes tu archivo y te lo descargas gratis y sin interrupciones publicitarias."
         }
       }
     ]

@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Formateador JSON Online - Rápido, Seguro y Privado",
     description: "Ordena, formatea y valida código JSON con un clic. La forma más segura de trabajar con JSON sin subir tus datos a servidores externos.",
-    url: "https://myutils.com/herramientas/formateador-json",
+    url: "https://otoolbox.com/herramientas/formateador-json",
     type: "website",
   },
   alternates: {
-    canonical: "https://myutils.com/herramientas/formateador-json",
+    canonical: "https://otoolbox.com/herramientas/formateador-json",
   },
 };
 

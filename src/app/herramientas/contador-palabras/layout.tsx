@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contador de Palabras y Caracteres Online Gratis | TheNinjaBox",
+  title: "Contador de Palabras y Caracteres Online Gratis | OToolbox",
   description: "Cuenta el número exacto de palabras, caracteres, frases y párrafos de cualquier texto al instante. Herramienta 100% gratuita, privada y sin publicidad.",
   keywords: "contador de palabras, contar caracteres, contador de letras gratis, cuantas palabras tiene un texto, contar parrafos, sin anuncios",
   openGraph: {
@@ -42,7 +42,7 @@ export default function ContadorPalabrasLayout({
         "name": "¿El texto que escribo o pego se guarda en algún servidor?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutamente no. TheNinjaBox procesa todo el texto localmente en tu propio navegador. Nadie más tiene acceso a lo que escribes, garantizando total privacidad para tus ensayos, artículos o documentos confidenciales."
+          "text": "Absolutamente no. OToolbox procesa todo el texto localmente en tu propio navegador. Nadie más tiene acceso a lo que escribes, garantizando total privacidad para tus ensayos, artículos o documentos confidenciales."
         }
       },
       {

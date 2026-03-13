@@ -157,29 +157,29 @@ export default function ImagenesAPdf() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-6 sm:p-12 bg-zinc-50 dark:bg-zinc-900">
-      <div className="w-full max-w-4xl flex flex-col items-center">
+    <main className="flex min-h-screen flex-col items-center p-4 sm:p-6 lg:p-8 bg-zinc-50 dark:bg-zinc-900">
+      <div className="w-full max-w-5xl flex flex-col items-center">
         
         {/* Encabezado SEO */}
-        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 text-center text-zinc-900 dark:text-zinc-50 tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-extrabold mb-3 text-center text-zinc-900 dark:text-zinc-50 tracking-tight">
           Convertir Imágenes a PDF
         </h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 text-center max-w-2xl">
-          Selecciona varias imágenes (JPG, PNG) y únelas en un único documento PDF al instante. Las imágenes nunca se suben a ningún servidor, garantizando tu privacidad.
+        <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mb-6 text-center max-w-2xl">
+          Selecciona varias imágenes y únelas en un PDF al instante. Las imágenes no se suben a ningún servidor, garantizando tu privacidad.
         </p>
 
         {errorMsg && (
-          <div className="mb-6 w-full max-w-4xl bg-red-50 text-red-600 p-4 rounded-xl border border-red-200 text-center font-medium animate-in fade-in zoom-in duration-300">
+          <div className="mb-4 w-full bg-red-50 text-red-600 p-3 rounded-lg border border-red-200 text-center text-sm font-medium animate-in fade-in zoom-in duration-300">
             {errorMsg}
           </div>
         )}
 
         {/* Casos de Uso Frecuentes (SEO Long-Tail) */}
-        <div className="w-full max-w-4xl mt-2 mb-10 bg-zinc-100/50 dark:bg-zinc-800/30 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800">
-          <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-4 flex items-center gap-2">
+        <div className="w-full mt-1 mb-8 bg-zinc-100/50 dark:bg-zinc-800/30 rounded-xl p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800">
+          <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-3 flex items-center gap-2">
             <span>💡</span> Casos de uso más populares:
           </h3>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-zinc-700 dark:text-zinc-300">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
             <li className="flex items-start gap-2">
               <span className="text-purple-500 font-bold">✓</span>
               Unir las fotos del anverso y reverso del <strong>DNI o Pasaporte</strong> en un solo PDF para trámites online.
@@ -200,9 +200,9 @@ export default function ImagenesAPdf() {
         </div>
 
         {/* --- LA HERRAMIENTA --- */}
-        <div className="w-full bg-white dark:bg-zinc-950 p-6 sm:p-8 rounded-2xl shadow-sm border border-zinc-200 dark:border-zinc-800 mb-16">
+        <div className="w-full bg-white dark:bg-zinc-950 p-4 sm:p-6 rounded-xl shadow-sm border border-zinc-200 dark:border-zinc-800 mb-12">
           
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-4">
             
             {/* Input Oculto */}
             <input 
@@ -217,13 +217,13 @@ export default function ImagenesAPdf() {
             {/* Botón Drag & Drop gigante */}
             <button 
               onClick={() => fileInputRef.current?.click()}
-              className="w-full h-32 flex flex-col items-center justify-center border-2 border-dashed border-purple-400 bg-purple-50/50 hover:bg-purple-50 dark:border-purple-800 dark:bg-purple-900/10 dark:hover:bg-purple-900/30 text-purple-700 dark:text-purple-400 rounded-xl transition-all"
+              className="w-full h-28 flex flex-col items-center justify-center border-2 border-dashed border-purple-400 bg-purple-50/50 hover:bg-purple-50 dark:border-purple-800 dark:bg-purple-900/10 dark:hover:bg-purple-900/30 text-purple-700 dark:text-purple-400 rounded-lg transition-all"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 mb-1">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
               </svg>
-              <span className="font-semibold text-lg">Haz clic aquí para seleccionar imágenes</span>
-              <span className="text-sm opacity-80">(Puedes seleccionar varias a la vez)</span>
+              <span className="font-semibold text-base">Haz clic aquí para seleccionar imágenes</span>
+              <span className="text-xs opacity-80">(Puedes seleccionar varias a la vez)</span>
             </button>
 
             {/* Galería con Drag & Drop */}
@@ -284,36 +284,36 @@ export default function ImagenesAPdf() {
             {/* Opciones Avanzadas del PDF (NUEVO) */}
             {imagenes.length > 0 && (
               <div className="w-full mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex flex-col gap-2 p-4 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl">
-                  <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">Orientación de la página</label>
+                <div className="flex flex-col gap-2 p-4 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+                  <label className="text-xs font-semibold text-zinc-700 dark:text-zinc-300">Orientación de la página</label>
                   <div className="flex gap-2">
                     <button 
                       onClick={() => setOrientacion("portrait")}
-                      className={`flex-1 py-2 px-3 text-sm rounded-lg border transition-colors ${orientacion === "portrait" ? "bg-purple-100 border-purple-300 text-purple-800 font-medium dark:bg-purple-900/40 dark:border-purple-700 dark:text-purple-300" : "bg-white border-zinc-200 text-zinc-600 dark:bg-zinc-950 dark:border-zinc-800 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800"}`}
+                      className={`flex-1 py-1.5 px-3 text-xs rounded-md border transition-colors ${orientacion === "portrait" ? "bg-purple-100 border-purple-300 text-purple-800 font-medium dark:bg-purple-900/40 dark:border-purple-700 dark:text-purple-300" : "bg-white border-zinc-200 text-zinc-600 dark:bg-zinc-950 dark:border-zinc-800 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800"}`}
                     >
                       📄 Vertical
                     </button>
                     <button 
                       onClick={() => setOrientacion("landscape")}
-                      className={`flex-1 py-2 px-3 text-sm rounded-lg border transition-colors ${orientacion === "landscape" ? "bg-purple-100 border-purple-300 text-purple-800 font-medium dark:bg-purple-900/40 dark:border-purple-700 dark:text-purple-300" : "bg-white border-zinc-200 text-zinc-600 dark:bg-zinc-950 dark:border-zinc-800 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800"}`}
+                      className={`flex-1 py-1.5 px-3 text-xs rounded-md border transition-colors ${orientacion === "landscape" ? "bg-purple-100 border-purple-300 text-purple-800 font-medium dark:bg-purple-900/40 dark:border-purple-700 dark:text-purple-300" : "bg-white border-zinc-200 text-zinc-600 dark:bg-zinc-950 dark:border-zinc-800 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800"}`}
                     >
                       📰 Horizontal
                     </button>
                   </div>
                 </div>
                 
-                <div className="flex flex-col gap-2 p-4 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-xl">
-                  <label className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">Márgenes de las fotos</label>
+                <div className="flex flex-col gap-2 p-4 bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg">
+                  <label className="text-xs font-semibold text-zinc-700 dark:text-zinc-300">Márgenes de las fotos</label>
                   <div className="flex gap-2">
                     <button 
                       onClick={() => setTipoMargen("normal")}
-                      className={`flex-1 py-2 px-3 text-sm rounded-lg border transition-colors ${tipoMargen === "normal" ? "bg-purple-100 border-purple-300 text-purple-800 font-medium dark:bg-purple-900/40 dark:border-purple-700 dark:text-purple-300" : "bg-white border-zinc-200 text-zinc-600 dark:bg-zinc-950 dark:border-zinc-800 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800"}`}
+                      className={`flex-1 py-1.5 px-3 text-xs rounded-md border transition-colors ${tipoMargen === "normal" ? "bg-purple-100 border-purple-300 text-purple-800 font-medium dark:bg-purple-900/40 dark:border-purple-700 dark:text-purple-300" : "bg-white border-zinc-200 text-zinc-600 dark:bg-zinc-950 dark:border-zinc-800 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800"}`}
                     >
                       🖼️ Con Margen
                     </button>
                     <button 
                       onClick={() => setTipoMargen("sin-margen")}
-                      className={`flex-1 py-2 px-3 text-sm rounded-lg border transition-colors ${tipoMargen === "sin-margen" ? "bg-purple-100 border-purple-300 text-purple-800 font-medium dark:bg-purple-900/40 dark:border-purple-700 dark:text-purple-300" : "bg-white border-zinc-200 text-zinc-600 dark:bg-zinc-950 dark:border-zinc-800 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800"}`}
+                      className={`flex-1 py-1.5 px-3 text-xs rounded-md border transition-colors ${tipoMargen === "sin-margen" ? "bg-purple-100 border-purple-300 text-purple-800 font-medium dark:bg-purple-900/40 dark:border-purple-700 dark:text-purple-300" : "bg-white border-zinc-200 text-zinc-600 dark:bg-zinc-950 dark:border-zinc-800 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800"}`}
                     >
                       📸 Sin Margen
                     </button>
@@ -326,21 +326,21 @@ export default function ImagenesAPdf() {
             <button
               onClick={generarPDF}
               disabled={imagenes.length === 0 || generando || cooldown}
-              className="w-full sm:w-2/3 mt-4 px-8 py-4 bg-purple-600 hover:bg-purple-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-lg rounded-xl shadow-lg shadow-purple-500/30 transition-all transform active:scale-95 disabled:active:scale-100 flex justify-center items-center gap-2"
+              className="w-full sm:w-1/2 mt-2 px-6 py-3 bg-purple-600 hover:bg-purple-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-base rounded-lg shadow-md transition-all transform active:scale-95 flex justify-center items-center gap-2"
             >
               {generando ? (
                 <span>Procesando PDF...</span>
               ) : cooldown ? (
                 <span>Enfriando...</span>
               ) : (
-                <span>Descargar PDF ({imagenes.length} páginas)</span>
+                <span>Descargar PDF ({imagenes.length} hojas)</span>
               )}
             </button>
           </div>
         </div>
 
         {/* --- CONTENIDO SEO --- */}
-        <article className="w-full text-zinc-800 dark:text-zinc-300 space-y-12">
+        <article className="w-full text-zinc-800 dark:text-zinc-300 space-y-8 text-sm sm:text-base">
           
           <section>
             <h2 className="text-2xl font-bold mb-4 text-zinc-900 dark:text-white">¿Cómo juntar y pasar fotos a PDF?</h2>
@@ -373,7 +373,7 @@ export default function ImagenesAPdf() {
             <p className="text-zinc-600 dark:text-zinc-400 mb-6">Ayúdanos a llegar a más personas compartiéndola con tus amigos o compañeros de estudio/trabajo.</p>
             <div className="flex justify-center gap-4">
               <a 
-                href="https://api.whatsapp.com/send?text=Mira%20este%20conversor%20gratuito%20de%20Im%C3%A1genes%20a%20PDF%20super%20r%C3%A1pido%20y%20seguro%3A%20https%3A%2F%2Fmyutils.com%2Fherramientas%2Fimagenes-a-pdf" 
+                href="https://api.whatsapp.com/send?text=Mira%20este%20conversor%20gratuito%20de%20Im%C3%A1genes%20a%20PDF%20super%20r%C3%A1pido%20y%20seguro%3A%20https%3A%2F%2Fotoolbox.com%2Fherramientas%2Fimagenes-a-pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-medium rounded-xl transition-colors shadow-sm"
@@ -384,7 +384,7 @@ export default function ImagenesAPdf() {
                 Compartir por WhatsApp
               </a>
               <a 
-                href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmyutils.com%2Fherramientas%2Fimagenes-a-pdf&text=%C2%A1He%20descubierto%20esta%20herramienta%20gratuita%20y%20segura%20para%20pasar%20mis%20fotos%20y%20apuntes%20a%20PDF%20al%20instante!" 
+                href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fotoolbox.com%2Fherramientas%2Fimagenes-a-pdf&text=%C2%A1He%20descubierto%20esta%20herramienta%20gratuita%20y%20segura%20para%20pasar%20mis%20fotos%20y%20apuntes%20a%20PDF%20al%20instante!" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 text-white font-medium rounded-xl transition-colors shadow-sm"

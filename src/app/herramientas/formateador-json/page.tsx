@@ -87,30 +87,33 @@ export default function FormateadorJsonPage() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-6 sm:p-12 bg-zinc-50 dark:bg-zinc-900">
-      <div className="w-full max-w-6xl flex flex-col items-center">
-        
-        {/* Enlace volver */}
+    <main className="flex min-h-screen flex-col items-center p-4 sm:p-6 lg:p-8 bg-zinc-50 dark:bg-zinc-900">
+      
+      {/* Botón Volver */}
+      <div className="w-full max-w-6xl mb-6">
         <Link 
           href="/" 
-          className="self-start mb-8 flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-            <path fillRule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clipRule="evenodd" />
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
-          Volver al inicio
+          Volver a Herramientas
         </Link>
+      </div>
+
+      <div className="w-full max-w-6xl flex flex-col items-center">
 
         {/* Encabezado SEO */}
-        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 text-center text-zinc-900 dark:text-zinc-50 tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-extrabold mb-3 text-center text-zinc-900 dark:text-zinc-50 tracking-tight">
           Formateador de JSON
         </h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 text-center max-w-2xl">
+        <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mb-6 text-center max-w-2xl">
           Pega, formatea, embellece y valida tu código JSON. Todo se ejecuta 100% en tu navegador para una privacidad total.
         </p>
 
         {/* --- LA HERRAMIENTA --- */}
-        <div className="w-full bg-white dark:bg-zinc-950 p-6 sm:p-8 rounded-3xl shadow-sm border border-zinc-200 dark:border-zinc-800 mb-16">
+        <div className="w-full bg-white dark:bg-zinc-950 p-4 sm:p-6 rounded-xl shadow-sm border border-zinc-200 dark:border-zinc-800 mb-12">
           
           {/* Controles superiores */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-6 border-b border-zinc-200 dark:border-zinc-800">
@@ -189,7 +192,7 @@ export default function FormateadorJsonPage() {
             
             {/* Input */}
             <div className="flex flex-col border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden bg-zinc-50 dark:bg-[#1e1e1e]">
-              <div className="bg-zinc-100 dark:bg-[#2d2d2d] px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 text-xs font-bold text-zinc-500 uppercase tracking-wider flex justify-between items-center">
+              <div className="bg-zinc-100 dark:bg-[#2d2d2d] px-3 sm:px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-wider flex justify-between items-center">
                 <span>Tu JSON / Input</span>
               </div>
               <textarea
@@ -198,14 +201,14 @@ export default function FormateadorJsonPage() {
                 maxLength={5000000} // Límite ~5MB
                 spellCheck="false"
                 placeholder='Pega tu JSON aquí... &#10;{"ejemplo": "hola mundo", "valido": true}'
-                className="w-full h-[500px] p-4 bg-transparent text-zinc-800 dark:text-[#d4d4d4] font-mono text-sm resize-none outline-none leading-relaxed"
+                className="w-full h-[400px] sm:h-[500px] p-3 sm:p-4 bg-transparent text-zinc-800 dark:text-[#d4d4d4] font-mono text-xs sm:text-sm resize-none outline-none leading-relaxed"
                 style={{ tabSize: indentSize }}
               />
             </div>
 
             {/* Output */}
             <div className="flex flex-col border border-zinc-200 dark:border-zinc-800 rounded-xl overflow-hidden bg-zinc-50 dark:bg-[#1e1e1e] relative">
-              <div className="bg-zinc-100 dark:bg-[#2d2d2d] px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 text-xs font-bold text-zinc-500 uppercase tracking-wider flex justify-between items-center">
+              <div className="bg-zinc-100 dark:bg-[#2d2d2d] px-3 sm:px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 text-[10px] sm:text-xs font-bold text-zinc-500 uppercase tracking-wider flex justify-between items-center">
                 <span>Resultado</span>
                 
                 {outputJson && (
@@ -233,7 +236,7 @@ export default function FormateadorJsonPage() {
                 value={outputJson}
                 placeholder="El JSON formateado aparecerá aquí..."
                 spellCheck="false"
-                className="w-full h-[500px] p-4 bg-transparent text-zinc-800 dark:text-[#9cdcfe] font-mono text-sm resize-none outline-none leading-relaxed"
+                className="w-full h-[400px] sm:h-[500px] p-3 sm:p-4 bg-transparent text-zinc-800 dark:text-[#9cdcfe] font-mono text-xs sm:text-sm resize-none outline-none leading-relaxed"
               />
             </div>
 
@@ -241,7 +244,7 @@ export default function FormateadorJsonPage() {
         </div>
 
         {/* --- CONTENIDO SEO --- */}
-        <article className="w-full max-w-4xl text-zinc-800 dark:text-zinc-300 space-y-12 pb-12">
+        <article className="w-full max-w-4xl text-zinc-800 dark:text-zinc-300 space-y-8 pb-12 text-sm sm:text-base">
           
           <section>
             <h2 className="text-2xl font-bold mb-4 text-zinc-900 dark:text-white">¿Qué es el Formateador JSON?</h2>

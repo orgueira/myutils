@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TheNinjaBox - Herramientas Online 100% Gratis y Sin Publicidad",
-  description: "Descubre TheNinjaBox: utilidades web gratuitas, sin anuncios, sin registros y procesadas de forma privada en tu navegador.",
+  title: "OToolbox - Herramientas Online 100% Gratis y Sin Publicidad",
+  description: "Descubre OToolbox: utilidades web gratuitas, sin anuncios, sin registros y procesadas de forma privada en tu navegador.",
 };
 
 export default function RootLayout({
@@ -32,7 +32,7 @@ export default function RootLayout({
           <nav className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between p-4 gap-4 sm:gap-0">
             {/* Logo y Tagline */}
             <Link href="/" className="flex items-center gap-2 font-bold text-xl text-zinc-900 dark:text-white transition-transform hover:scale-105">
-              <span>🥷 TheNinjaBox</span>
+              <span>🧰 OToolbox</span>
               <span className="hidden lg:inline-flex items-center rounded-full bg-green-100 px-2.5 py-0.5 text-[10px] uppercase font-bold text-green-800 dark:bg-green-900/30 dark:text-green-400 tracking-wider">
                 100% Gratis y Sin Ads
               </span>
@@ -56,7 +56,7 @@ export default function RootLayout({
             {/* Columna 1: Marca y Misión */}
             <div className="flex flex-col gap-4">
               <Link href="/" className="flex items-center gap-2 font-bold text-xl text-zinc-900 dark:text-white">
-                <span>🥷 TheNinjaBox</span>
+                <span>🧰 OToolbox</span>
               </Link>
               <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-sm">
                 Nuestra misión es crear un rincón de internet limpio. Ofrecemos herramientas premium totalmente gratis, sin anuncios invasivos, sin registros y procesando tus archivos de forma segura directamente en tu navegador.
@@ -87,7 +87,7 @@ export default function RootLayout({
           </div>
           
           <div className="max-w-6xl mx-auto px-6 pt-8 border-t border-zinc-200 dark:border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500 dark:text-zinc-400">
-            <p>© {new Date().getFullYear()} TheNinjaBox. Todos los derechos reservados.</p>
+            <p>© {new Date().getFullYear()} OToolbox. Todos los derechos reservados.</p>
             <p>Construido con ❤️ para un internet más rápido y privado.</p>
           </div>
         </footer>

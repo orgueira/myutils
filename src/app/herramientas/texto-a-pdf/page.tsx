@@ -77,29 +77,29 @@ export default function TextoAPdf() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-6 sm:p-12 bg-zinc-50 dark:bg-zinc-900">
-      <div className="w-full max-w-4xl flex flex-col items-center">
+    <main className="flex min-h-screen flex-col items-center p-4 sm:p-6 lg:p-8 bg-zinc-50 dark:bg-zinc-900">
+      <div className="w-full max-w-5xl flex flex-col items-center">
         
         {/* Encabezado SEO optimizado */}
-        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 text-center text-zinc-900 dark:text-zinc-50 tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-extrabold mb-3 text-center text-zinc-900 dark:text-zinc-50 tracking-tight">
           Conversor de Texto y TXT a PDF
         </h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400 mb-8 text-center max-w-2xl">
-          Convierte tus notas, apuntes o archivos de texto plano (.txt) a un documento PDF con formato perfecto al instante. Herramienta 100% gratuita, segura y sin registro.
+        <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mb-6 text-center max-w-2xl">
+          Convierte tus notas o archivos de texto plano (.txt) a PDF al instante. 100% gratis, seguro y procesado en tu navegador.
         </p>
 
         {errorMsg && (
-          <div className="mb-6 w-full max-w-4xl bg-red-50 text-red-600 p-4 rounded-xl border border-red-200 text-center font-medium animate-in fade-in zoom-in duration-300">
+          <div className="mb-4 w-full bg-red-50 text-red-600 p-3 rounded-lg border border-red-200 text-center text-sm font-medium animate-in fade-in zoom-in duration-300">
             {errorMsg}
           </div>
         )}
 
         {/* Casos de Uso Frecuentes (SEO Long-Tail) */}
-        <div className="w-full max-w-4xl mt-2 mb-10 bg-zinc-100/50 dark:bg-zinc-800/30 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800">
-          <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-4 flex items-center gap-2">
+        <div className="w-full mt-1 mb-8 bg-zinc-100/50 dark:bg-zinc-800/30 rounded-xl p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800">
+          <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-3 flex items-center gap-2">
             <span>💡</span> Casos de uso más populares:
           </h3>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-zinc-700 dark:text-zinc-300">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
             <li className="flex items-start gap-2">
               <span className="text-blue-500 font-bold">✓</span>
               Convertir <strong>apuntes de clase o notas rápidas</strong> a PDF para imprimirlos o compartirlos con compañeros.
@@ -120,10 +120,10 @@ export default function TextoAPdf() {
         </div>
 
         {/* --- LA HERRAMIENTA --- */}
-        <div className="w-full bg-white dark:bg-zinc-950 p-6 sm:p-8 rounded-2xl shadow-sm border border-zinc-200 dark:border-zinc-800 mb-16">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4">
-            <label htmlFor="texto" className="font-semibold text-zinc-800 dark:text-zinc-200 text-lg">
-              Escribe, pega tu texto o sube un archivo:
+        <div className="w-full bg-white dark:bg-zinc-950 p-4 sm:p-6 rounded-xl shadow-sm border border-zinc-200 dark:border-zinc-800 mb-12">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 gap-3">
+            <label htmlFor="texto" className="font-semibold text-zinc-800 dark:text-zinc-200 text-base">
+              Pega tu texto o sube un archivo:
             </label>
             
             {/* Botón oculto de subida y botón visual */}
@@ -136,7 +136,7 @@ export default function TextoAPdf() {
             />
             <button 
               onClick={() => fileInputRef.current?.click()}
-              className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 dark:text-blue-400 dark:bg-blue-900/30 dark:hover:bg-blue-900/50 rounded-lg transition-colors"
+              className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 dark:text-blue-400 dark:bg-blue-900/30 dark:hover:bg-blue-900/50 rounded-md transition-colors"
             >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
@@ -149,22 +149,22 @@ export default function TextoAPdf() {
             id="texto"
             value={texto}
             onChange={(e) => setTexto(e.target.value)}
-            className="w-full h-80 p-4 rounded-xl border border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-blue-500 outline-none resize-y mb-6"
-            placeholder="Pega tu texto aquí o utiliza el botón superior para cargar un documento de texto..."
+            className="w-full h-64 p-3 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-900 text-sm text-zinc-900 dark:text-zinc-100 focus:ring-2 focus:ring-blue-500 outline-none resize-y mb-5"
+            placeholder="Escribe o pega tu contenido aquí..."
           />
           
           {/* Opciones de Formato */}
-          <div className="w-full bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 mb-8">
-            <h3 className="text-sm font-bold text-zinc-700 dark:text-zinc-300 uppercase tracking-wider mb-4">Ajustes del Documento</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="w-full bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-lg p-4 mb-6">
+            <h3 className="text-xs font-bold text-zinc-700 dark:text-zinc-300 uppercase tracking-wider mb-3">Ajustes del Documento</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               
               {/* Selector de Fuente */}
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-zinc-600 dark:text-zinc-400">Tipo de letra</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-zinc-600 dark:text-zinc-400">Tipo de letra</label>
                 <select 
                   value={fuente} 
                   onChange={(e) => setFuente(e.target.value as any)}
-                  className="p-2.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 outline-none focus:border-blue-500"
+                  className="p-2 text-sm rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 outline-none focus:border-blue-500"
                 >
                   <option value="helvetica">Arial / Helvetica (Clásica)</option>
                   <option value="times">Times New Roman (Formal)</option>
@@ -173,12 +173,12 @@ export default function TextoAPdf() {
               </div>
 
               {/* Selector de Tamaño */}
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-zinc-600 dark:text-zinc-400">Tamaño de letra</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-zinc-600 dark:text-zinc-400">Tamaño de letra</label>
                 <select 
                   value={tamanoFuente} 
                   onChange={(e) => setTamanoFuente(Number(e.target.value))}
-                  className="p-2.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 outline-none focus:border-blue-500"
+                  className="p-2 text-sm rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 outline-none focus:border-blue-500"
                 >
                   <option value={10}>Pequeña (10pt)</option>
                   <option value={12}>Normal (12pt)</option>
@@ -187,12 +187,12 @@ export default function TextoAPdf() {
               </div>
 
               {/* Selector de Orientación */}
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium text-zinc-600 dark:text-zinc-400">Orientación</label>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-zinc-600 dark:text-zinc-400">Orientación</label>
                 <select 
                   value={orientacion} 
                   onChange={(e) => setOrientacion(e.target.value as any)}
-                  className="p-2.5 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 outline-none focus:border-blue-500"
+                  className="p-2 text-sm rounded-md border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 outline-none focus:border-blue-500"
                 >
                   <option value="portrait">Vertical</option>
                   <option value="landscape">Horizontal</option>
@@ -206,15 +206,15 @@ export default function TextoAPdf() {
             <button
               onClick={generarPDF}
               disabled={!texto.trim() || cooldown}
-              className="w-full sm:w-2/3 px-8 py-4 bg-blue-600 hover:bg-blue-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-lg rounded-xl shadow-lg shadow-blue-500/30 transition-all transform active:scale-95 disabled:active:scale-100 flex items-center justify-center"
+              className="w-full sm:w-1/2 px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-base rounded-lg shadow-md transition-all transform active:scale-95 flex items-center justify-center"
             >
-              {cooldown ? "Generando..." : "Descargar PDF Ahora"}
+              {cooldown ? "Generando..." : "Descargar PDF"}
             </button>
           </div>
         </div>
 
         {/* --- CONTENIDO SEO (Para atraer visitas) --- */}
-        <article className="w-full text-zinc-800 dark:text-zinc-300 space-y-12">
+        <article className="w-full text-zinc-800 dark:text-zinc-300 space-y-8 text-sm sm:text-base">
           
           <section>
             <h2 className="text-2xl font-bold mb-4 text-zinc-900 dark:text-white">¿Cómo convertir texto a PDF online?</h2>
@@ -272,7 +272,7 @@ export default function TextoAPdf() {
             <p className="text-zinc-600 dark:text-zinc-400 mb-6">Ayúdanos a llegar a más personas compartiéndola con tus amigos o compañeros de estudio/trabajo.</p>
             <div className="flex justify-center gap-4">
               <a 
-                href="https://api.whatsapp.com/send?text=Mira%20este%20conversor%20gratuito%20de%20Texto%20a%20PDF%20super%20r%C3%A1pido%20y%20seguro%3A%20https%3A%2F%2Fmyutils.com%2Fherramientas%2Ftexto-a-pdf" 
+                href="https://api.whatsapp.com/send?text=Mira%20este%20conversor%20gratuito%20de%20Texto%20a%20PDF%20super%20r%C3%A1pido%20y%20seguro%3A%20https%3A%2F%2Fotoolbox.com%2Fherramientas%2Ftexto-a-pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-medium rounded-xl transition-colors shadow-sm"
@@ -283,7 +283,7 @@ export default function TextoAPdf() {
                 Compartir por WhatsApp
               </a>
               <a 
-                href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fmyutils.com%2Fherramientas%2Ftexto-a-pdf&text=%C2%A1He%20descubierto%20esta%20herramienta%20gratuita%20y%20segura%20para%20pasar%20mis%20textos%20a%20PDF%20al%20instante!" 
+                href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fotoolbox.com%2Fherramientas%2Ftexto-a-pdf&text=%C2%A1He%20descubierto%20esta%20herramienta%20gratuita%20y%20segura%20para%20pasar%20mis%20textos%20a%20PDF%20al%20instante!" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200 text-white font-medium rounded-xl transition-colors shadow-sm"

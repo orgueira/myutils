@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     
     await resend.emails.send({
-      from: 'TheNinjaBox <onboarding@resend.dev>',
+      from: 'OToolbox <onboarding@resend.dev>',
       to: contactEmail,
       subject: `[${topic}] Nuevo mensaje de ${name || 'Anónimo'}`,
       text: `Remitente: ${name} (${email})\nAsunto: ${topic}\n\nMensaje:\n${message}`,

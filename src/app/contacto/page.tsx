@@ -77,7 +77,7 @@ export default function ContactoPage() {
             Contacto y <span className="text-blue-600 dark:text-blue-400">Sugerencias</span>
           </h1>
           <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            TheNinjaBox está construido para vosotros. Si notas algún error, tienes una idea para una herramienta nueva o simplemente quieres saludar, rellena el formulario.
+            OToolbox está construido para vosotros. Si notas algún error, tienes una idea para una herramienta nueva o simplemente quieres saludar, rellena el formulario.
           </p>
         </div>
 
@@ -86,11 +86,11 @@ export default function ContactoPage() {
           {status === "success" ? (
             <div className="flex flex-col items-center justify-center text-center py-12 animate-in fade-in zoom-in duration-300">
               <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mb-6">
-                <span className="text-4xl">🥷</span>
+                <span className="text-4xl">🧰</span>
               </div>
               <h3 className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 tracking-tight mb-2">¡Mensaje enviado con éxito!</h3>
               <p className="text-zinc-600 dark:text-zinc-400">
-                Hemos recibido tu mensaje correctamente. Nuestro equipo ninja lo leerá lo antes posible. ¡Gracias por ayudarnos a mejorar!
+                Hemos recibido tu mensaje correctamente. Nuestro equipo toolbox lo leerá lo antes posible. ¡Gracias por ayudarnos a mejorar!
               </p>
               <button 
                 onClick={() => setStatus("idle")}
@@ -113,7 +113,7 @@ export default function ContactoPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="Ninja Anónimo"
+                    placeholder="toolbox Anónimo"
                     className="w-full text-sm p-3 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-[#1e1e1e] text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all"
                   />
                 </div>

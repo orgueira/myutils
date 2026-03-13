@@ -30,12 +30,12 @@ export default function TerminosPage() {
         <div className="prose prose-zinc dark:prose-invert max-w-none text-zinc-800 dark:text-zinc-300">
           
           <p className="mb-6">
-            Bienvenido a <strong>TheNinjaBox</strong>. Al acceder y utilizar este sitio web y sus herramientas, aceptas cumplir con los siguientes Términos de Servicio. Si no estás de acuerdo con alguna parte de estos términos, no deberías usar nuestra web.
+            Bienvenido a <strong>OToolbox</strong>. Al acceder y utilizar este sitio web y sus herramientas, aceptas cumplir con los siguientes Términos de Servicio. Si no estás de acuerdo con alguna parte de estos términos, no deberías usar nuestra web.
           </p>
 
           <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">1. Uso del Servicio</h2>
           <p className="mb-4">
-            TheNinjaBox proporciona un conjunto de herramientas web gratuitas (en adelante, "el Servicio") orientadas al procesamiento de texto e imágenes. 
+            OToolbox proporciona un conjunto de herramientas web gratuitas (en adelante, "el Servicio") orientadas al procesamiento de texto e imágenes. 
           </p>
           <ul className="list-disc pl-6 mb-6 space-y-2">
             <li>Aceptas usar el Servicio únicamente para fines legales y de una manera que no infrinja los derechos de, restrinja o inhiba el uso de este Servicio por parte de cualquier otra persona.</li>
@@ -48,20 +48,20 @@ export default function TerminosPage() {
             El Servicio se proporciona "tal cual" (<em>as is</em>) y "según disponibilidad".
           </p>
           <ul className="list-disc pl-6 mb-6 space-y-2">
-            <li><strong>TheNinjaBox es un proyecto gratuito</strong>. No garantizamos que la web esté libre de errores, interrupciones o que cumpla con tus requisitos específicos de rendimiento.</li>
+            <li><strong>OToolbox es un proyecto gratuito</strong>. No garantizamos que la web esté libre de errores, interrupciones o que cumpla con tus requisitos específicos de rendimiento.</li>
             <li>No nos hacemos responsables de la pérdida de datos. Como la mayoría de herramientas operan en tu propio navegador, asegúrate de guardar copias de seguridad de tus documentos antes de procesarlos.</li>
             <li>Las herramientas híbridas que dependen de cuotas gratuitas de terceros (como la eliminación de fondos) pueden dejar de ofrecer resultados de "alta calidad" si se agotan los límites, volviendo automáticamente al modelo local. No garantizamos la disponibilidad continua de las APIs de terceros.</li>
           </ul>
 
           <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">3. Propiedad Intelectual</h2>
           <p className="mb-6">
-            Nosotros no reclamamos ninguna propiedad sobre los textos, imágenes o documentos que decidas procesar usando TheNinjaBox. Tú mantienes todos los derechos (incluido el copyright) sobre tu material.
-            El diseño del sitio web, el código, el logotipo y la marca TheNinjaBox son propiedad exclusiva de los creadores de esta plataforma.
+            Nosotros no reclamamos ninguna propiedad sobre los textos, imágenes o documentos que decidas procesar usando OToolbox. Tú mantienes todos los derechos (incluido el copyright) sobre tu material.
+            El diseño del sitio web, el código, el logotipo y la marca OToolbox son propiedad exclusiva de los creadores de esta plataforma.
           </p>
 
           <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">4. Enlaces de Terceros</h2>
           <p className="mb-6">
-            Nuestra web puede contener enlaces a sitios web o servicios de terceros. TheNinjaBox no asume ninguna responsabilidad por el contenido, las políticas de privacidad o las prácticas de sitios o servicios de terceros.
+            Nuestra web puede contener enlaces a sitios web o servicios de terceros. OToolbox no asume ninguna responsabilidad por el contenido, las políticas de privacidad o las prácticas de sitios o servicios de terceros.
           </p>
 
           <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">5. Modificaciones</h2>

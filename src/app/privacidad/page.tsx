@@ -31,7 +31,7 @@ export default function PrivacidadPage() {
           
           <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">1. Nuestra filosofía: La privacidad por diseño</h2>
           <p className="mb-6">
-            En <strong>TheNinjaBox</strong>, creemos que tus archivos y datos te pertenecen solo a ti. Por eso, hemos diseñado nuestras herramientas bajo el principio de <em>"Procesamiento Local"</em> (Local-First).
+            En <strong>OToolbox</strong>, creemos que tus archivos y datos te pertenecen solo a ti. Por eso, hemos diseñado nuestras herramientas bajo el principio de <em>"Procesamiento Local"</em> (Local-First).
           </p>
 
           <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mt-8 mb-4">2. ¿Qué datos procesamos y cómo?</h2>

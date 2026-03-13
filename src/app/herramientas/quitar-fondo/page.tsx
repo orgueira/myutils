@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback } from "react";
+import Link from "next/link";
 import { removeBackground } from "@imgly/background-removal";
 
 export default function QuitarFondoPage() {
@@ -161,17 +162,30 @@ export default function QuitarFondoPage() {
   };
 
   return (
-    <div className="min-h-screen p-8 sm:p-24 bg-zinc-50 dark:bg-zinc-900 font-[family-name:var(--font-geist-sans)]">
+    <div className="min-h-screen p-4 sm:p-6 lg:p-8 bg-zinc-50 dark:bg-zinc-900 font-[family-name:var(--font-geist-sans)] flex flex-col items-center">
       
+      {/* Botón Volver */}
+      <div className="w-full max-w-5xl mb-6">
+        <Link 
+          href="/" 
+          className="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          Volver a Herramientas
+        </Link>
+      </div>
+
       {/* Cabecera */}
-      <div className="w-full max-w-4xl mx-auto flex flex-col items-center text-center mb-12">
-        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 mb-4">
+      <div className="w-full max-w-4xl mx-auto flex flex-col items-center text-center mb-8">
+        <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50 mb-3">
           Quitar <span className="text-purple-600">Fondo</span> de Imágenes
         </h1>
-        <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-2xl mb-4">
+        <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 max-w-2xl mb-4">
           Sube tu fotografía y nuestra Inteligencia Artificial separará a la persona/objeto principal del fondo automáticamente.
         </p>
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300 text-sm font-semibold border border-purple-200 dark:border-purple-800">
+        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300 text-xs font-semibold border border-purple-200 dark:border-purple-800">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.75-13a.75.75 0 00-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 000-1.5h-3.25V5z" clipRule="evenodd" />
           </svg>
@@ -180,11 +194,11 @@ export default function QuitarFondoPage() {
       </div>
 
       {/* Casos de Uso Frecuentes (SEO Long-Tail) */}
-      <div className="w-full max-w-4xl mx-auto mt-2 mb-10 bg-zinc-100/50 dark:bg-zinc-800/30 rounded-2xl p-6 border border-zinc-200 dark:border-zinc-800">
-        <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-4 flex items-center gap-2">
+      <div className="w-full max-w-4xl mx-auto mt-1 mb-8 bg-zinc-100/50 dark:bg-zinc-800/30 rounded-xl p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800">
+        <h3 className="text-sm font-bold text-zinc-900 dark:text-zinc-100 mb-3 flex items-center gap-2">
           <span>💡</span> Beneficios y casos de uso:
         </h3>
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-zinc-700 dark:text-zinc-300">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
           <li className="flex items-start gap-2">
             <span className="text-purple-500 font-bold">✓</span>
             <div>
@@ -227,7 +241,7 @@ export default function QuitarFondoPage() {
         {!originalUrl ? (
           /* ZONA DRAG AND DROP (Vista 1: Subir Archivo) */
           <div 
-            className={`w-full max-w-3xl flex flex-col items-center justify-center border-2 border-dashed rounded-3xl p-12 transition-all duration-200 cursor-pointer ${
+            className={`w-full max-w-3xl flex flex-col items-center justify-center border-2 border-dashed rounded-2xl p-8 sm:p-12 transition-all duration-200 cursor-pointer ${
               isDragging 
                 ? "border-purple-500 bg-purple-50 dark:bg-purple-900/20" 
                 : "border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 hover:border-purple-400 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
@@ -237,15 +251,15 @@ export default function QuitarFondoPage() {
             onDrop={onDrop}
             onClick={() => fileInputRef.current?.click()}
           >
-            <div className="w-20 h-20 mb-6 rounded-full bg-purple-100 text-purple-600 dark:bg-purple-900/30 flex items-center justify-center">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-6 rounded-full bg-purple-100 text-purple-600 dark:bg-purple-900/30 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 sm:w-10 sm:h-10">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-zinc-800 dark:text-zinc-200 mb-2">
+            <h3 className="text-lg sm:text-xl font-semibold text-zinc-800 dark:text-zinc-200 mb-2">
               Haz clic o arrastra tu imagen aquí
             </h3>
-            <p className="text-zinc-500 dark:text-zinc-400 text-sm">
+            <p className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm">
               Soporta JPG, PNG, WEBP (Hasta 10MB idealmente)
             </p>
             <input 
@@ -262,18 +276,18 @@ export default function QuitarFondoPage() {
           <div className="w-full flex flex-col lg:flex-row gap-8 items-stretch justify-center">
             
             {/* Panel Izquierdo: Original */}
-            <div className="flex-1 flex flex-col bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 shadow-sm overflow-hidden">
-              <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200 mb-4 flex items-center justify-between">
+            <div className="flex-1 flex flex-col bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-6 shadow-sm overflow-hidden">
+              <h3 className="text-base sm:text-lg font-semibold text-zinc-800 dark:text-zinc-200 mb-4 flex items-center justify-between">
                 <span>Original</span>
                 <button 
                   onClick={resetAll}
                   disabled={isProcessing}
-                  className="text-sm font-medium px-3 py-1.5 rounded-lg bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700 transition-colors disabled:opacity-50"
+                  className="text-xs sm:text-sm font-medium px-3 py-1.5 rounded-md bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700 transition-colors disabled:opacity-50"
                 >
                   Subir otra
                 </button>
               </h3>
-              <div className="flex-1 min-h-[300px] flex items-center justify-center bg-zinc-100 dark:bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 relative">
+              <div className="flex-1 min-h-[250px] sm:min-h-[300px] flex items-center justify-center bg-zinc-100 dark:bg-zinc-900 rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 relative p-2">
                 <img 
                   src={originalUrl} 
                   alt="Original" 
@@ -285,9 +299,9 @@ export default function QuitarFondoPage() {
                 <button
                   onClick={processImage}
                   disabled={cooldown}
-                  className="mt-6 w-full py-4 rounded-xl bg-purple-600 hover:bg-purple-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-lg shadow-lg shadow-purple-600/20 transition-all flex items-center justify-center gap-2 disabled:active:scale-100 disabled:opacity-50"
+                  className="mt-4 w-full py-3 rounded-lg bg-purple-600 hover:bg-purple-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-base shadow-md transition-all flex items-center justify-center gap-2 disabled:active:scale-100 disabled:opacity-50"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                   </svg>
                   {cooldown ? "Procesando..." : "Quitar Fondo Mágicamente"}
@@ -310,14 +324,14 @@ export default function QuitarFondoPage() {
 
             {/* Panel Derecho: Resultado */}
             {resultUrl && (
-              <div className="flex-1 flex flex-col bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-3xl p-6 shadow-sm overflow-hidden animate-in fade-in slide-in-from-right-8 duration-500">
-                <h3 className="text-lg font-semibold text-zinc-800 dark:text-zinc-200 mb-4 flex items-center justify-between">
+              <div className="flex-1 flex flex-col bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-6 shadow-sm overflow-hidden animate-in fade-in slide-in-from-right-8 duration-500">
+                <h3 className="text-base sm:text-lg font-semibold text-zinc-800 dark:text-zinc-200 mb-4 flex items-center justify-between">
                   <span>Resultado Sin Fondo</span>
-                  <span className="text-sm px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-md">Transparente</span>
+                  <span className="text-xs sm:text-sm px-2 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-md">Transparente</span>
                 </h3>
                 
                 <div 
-                  className="flex-1 min-h-[300px] flex items-center justify-center rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 relative"
+                  className="flex-1 min-h-[250px] sm:min-h-[300px] flex items-center justify-center rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800 relative p-2"
                   style={{ backgroundImage: checkerboardBg }}
                 >
                   <img 
@@ -330,9 +344,9 @@ export default function QuitarFondoPage() {
                 <button
                   onClick={handleDownload}
                   disabled={cooldown}
-                  className="mt-6 w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-lg shadow-lg shadow-blue-600/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="mt-4 w-full py-3 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:bg-zinc-400 dark:disabled:bg-zinc-800 text-white font-bold text-base shadow-md transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
                   </svg>
                   Descargar PNG

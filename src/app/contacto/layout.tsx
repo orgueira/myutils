@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contacto y Sugerencias | TheNinjaBox",
+  title: "Contacto y Sugerencias | OToolbox",
   description: "¿Tienes alguna sugerencia, error que reportar o idea para una nueva herramienta? Contáctanos.",
 };
 
