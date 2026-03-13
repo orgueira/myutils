@@ -15,8 +15,8 @@ export default function Home() {
       
       {/* Hero Section / USP (Unique Selling Proposition) */}
       <div className="w-full max-w-6xl text-center mb-10">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-4">
-          Caja de Herramientas <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Premium</span>
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight mb-4">
+          Caja de Herramientas <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Rápidas</span>
         </h1>
         <p className="text-base text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto font-medium mb-6">
           Totalmente gratuitas, sin anuncios invasivos y sin necesidad de crear cuenta. Todo se procesa de manera segura directamente en tu navegador web.
