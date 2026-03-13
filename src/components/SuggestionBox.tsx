@@ -6,21 +6,38 @@ export default function SuggestionBox({ category }: { category: string }) {
   const [suggestion, setSuggestion] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!suggestion.trim()) return;
     
-    // Simula el envío (En el futuro se conectará a un email o BD)
     setStatus("loading");
-    setTimeout(() => {
-      setStatus("success");
-      setSuggestion("");
-      
-      // Vuelve al estado inicial después de unos segundos
-      setTimeout(() => {
+
+    try {
+      const res = await fetch("/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: "Usuario del buzón",
+          email: "",
+          topic: `Idea - ${category}`,
+          message: suggestion,
+        }),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        setSuggestion("");
+        setTimeout(() => setStatus("idle"), 4000);
+      } else {
+        console.error("Error al enviar sugerencia");
         setStatus("idle");
-      }, 4000);
-    }, 800);
+        alert("Ups, no pudimos enviar tu idea. Inténtalo de nuevo más tarde.");
+      }
+    } catch (error) {
+      console.error("Excepción al enviar sugerencia:", error);
+      setStatus("idle");
+      alert("Hubo un problema de conexión. Inténtalo de nuevo más tarde.");
+    }
   };
 
   return (

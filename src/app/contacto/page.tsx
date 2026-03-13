@@ -12,20 +12,40 @@ export default function ContactoPage() {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Simular el envío del formulario
+    if (!formData.message.trim()) return;
+
     setStatus("loading");
-    setTimeout(() => {
-      setStatus("success");
-      setFormData({ name: "", email: "", topic: "sugerencia", message: "" });
-      
-      // Vuelve a idle después de unos segundos
-      setTimeout(() => {
+
+    try {
+      const res = await fetch("/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          // Prefijamos el topic con "Contacto y Sugerencias" para identificar de dónde viene en Vercel
+          topic: `Contacto y Sugerencias - ${formData.topic}`,
+          message: formData.message,
+        }),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", topic: "sugerencia", message: "" });
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        // En caso de error de la API, podemos mostrar un alert o gestionar el estado
+        console.error("Error al enviar el formulario");
         setStatus("idle");
-      }, 5000);
-    }, 1200);
+        alert("Hubo un problema enviando tu mensaje. Inténtalo de nuevo más tarde.");
+      }
+    } catch (error) {
+      console.error("Excepción de red al enviar contacto:", error);
+      setStatus("idle");
+      alert("Hubo un problema de conexión. Inténtalo de nuevo más tarde.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
