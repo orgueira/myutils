@@ -6,6 +6,14 @@ export default function SuggestionBox({ category }: { category: string }) {
   const [suggestion, setSuggestion] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
 
+  const getPlaceholder = (cat: string) => {
+    const lower = cat.toLowerCase();
+    if (lower.includes("texto")) return "Ej: Un conversor a mayúsculas...";
+    if (lower.includes("imágen") || lower.includes("imagen")) return "Ej: Un conversor de colores...";
+    if (lower.includes("techie")) return "Ej: Un validador de JWT...";
+    return "Ej: Una nueva herramienta...";
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!suggestion.trim()) return;
@@ -68,7 +76,7 @@ export default function SuggestionBox({ category }: { category: string }) {
             value={suggestion}
             onChange={(e) => setSuggestion(e.target.value)}
             disabled={status === "loading"}
-            placeholder={`Ej: Un conversor de colores...`}
+            placeholder={getPlaceholder(category)}
             className="w-full text-sm p-3 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-400 focus:border-transparent resize-none flex-grow mb-3 min-h-[70px] transition-all shadow-sm"
             maxLength={150}
           />
